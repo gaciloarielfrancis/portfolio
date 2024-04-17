@@ -1,19 +1,39 @@
 #container::before {
-  --size: 0;
-  content: '';
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--size);
-  height: var(--size);
-  background: radial-gradient(circle closest-side, #cbd5e1, transparent);
-  transform: translate(-50%, -50%);
-  transition: width .2s ease, height .2s ease;
+	--size: 0;
+	content: '';
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+	height: var(--size);
+	background: radial-gradient(circle closest-side, #cbd5e1, transparent);
+	transform: translate(-50%, -50%);
+	transition: width .2s ease, height .2s ease;
 }
 
 /* size of the gradient on hover */
 #container:hover::before {
-  --size: 200px;
+  	--size: 200px;
+}
+
+::-webkit-scrollbar {
+	border-radius: 5px;
+  	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  	background: #EEE;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  	/* background: #AAA; */
+	background: linear-gradient(180deg, rgba(170,170,170,1) 0%, rgba(204,204,204,1) 100%);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  	background: #888; 
 }
 
 .App {
