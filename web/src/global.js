@@ -59,7 +59,7 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-	page: "contactme",
+	page: "home",
 	readyPage: true,
 	skillSet: [
 		{ n: "HTML5", img: html5, r: 10, y: 9 },
