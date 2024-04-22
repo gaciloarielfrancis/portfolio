@@ -1,8 +1,7 @@
 import { animated, useSpring, useTransition, easings  } from "@react-spring/web";
-import { useStoreState } from "../global";
+import { useStoreState, dispatch } from "../global";
 import profile from "../img/profile.png";
 import { useEffect } from "react";
-import { dispatch } from "../global";
 
 export const AboutMe = () => {
 
@@ -28,7 +27,7 @@ export const AboutMe = () => {
         }), 
     []);
 
-    const label = useTransition([1, 2, 3, 4, 5, 6, 7], {
+    const label = useTransition([1, 2, 3, 4, 5], {
         from: { y: 50, opacity: 0 },
         enter: { y: 0, opacity: 1 },
         update: { y: 50, opacity: 0, delay: 0 },
@@ -110,7 +109,7 @@ export const AboutMe = () => {
 
     return (
         <div className="block grid-flow-row-dense grid-cols-2 h-auto py-12 md:grid md:h-screen relative">
-            <div className={ "px-3 overflow-x-hidden " + (page === "aboutme" ? " overflow-y-auto" : "") }>
+            <div className={ "px-3 overflow-x-hidden overflow-y-" + (page === "aboutme" ? "auto" : "hidden") }>
                 <animated.img src={ profile } className="w-32 block align-middle grayscale bg-gray-100 rounded-full m-auto md:mr-4 md:inline-block" style={ imgStyle } alt="profile" />
                 <div className="inline-block align-middle">
                     <animated.div className="text-xl" style={ labelAnims[0] }>Ariel Francis Gacilo</animated.div>
@@ -123,9 +122,7 @@ export const AboutMe = () => {
                         ))
                     }
                 </div>
-                <animated.div className="text-xl mt-5" style={ labelAnims[1] }>Summary</animated.div>
-                <animated.p className="text-sm text-gray-700" style={ labelAnims[2] }>To obtain a challenging position in an organization that will capitalize on my skills and experiences as a programmer.</animated.p>
-                <animated.div className="text-xl mt-5" style={ labelAnims[3] }>Skills</animated.div>
+                <animated.div className="text-xl mt-5" style={ labelAnims[1] }>Skills</animated.div>
                 {
                     skills((style, s, state, i) => (
                         <animated.div className="inline-block align-middle mr-1 mb-2 p-1 text-sm w-46 bg-gray-50" style={ style }>
@@ -144,8 +141,8 @@ export const AboutMe = () => {
                     ))
                 }
             </div>
-            <div className={ "px-3 overflow-x-hidden " + (page === "aboutme" ? " overflow-y-auto" : "") }>
-                <animated.div className="text-xl mt-5" style={ labelAnims[4] }>Employment History</animated.div>
+            <div className={ "px-3 overflow-x-hidden overflow-y-" + (page === "aboutme" ? "auto" : "hidden") }>
+                <animated.div className="text-xl mt-5" style={ labelAnims[2] }>Employment History</animated.div>
                 {
                     exp((style, e) => (
                         <animated.div className="p-2 bg-gray-50 mb-1" style={ style }>
@@ -154,13 +151,13 @@ export const AboutMe = () => {
                         </animated.div>
                     ))
                 }
-                <animated.div className="text-xl mt-5" style={ labelAnims[5] }>Professional Experience</animated.div>
+                <animated.div className="text-xl mt-5" style={ labelAnims[3] }>Professional Experience</animated.div>
                 {
                     roles((style, d) => (
                         <animated.p className="text-sm text-gray-700" style={ style }>{"• " + d }</animated.p>
                     ))
                 }
-                <animated.div className="text-xl mt-5" style={ labelAnims[6] }>Education</animated.div>
+                <animated.div className="text-xl mt-5" style={ labelAnims[4] }>Education</animated.div>
                 {
                     educ((style, e) => (
                         <animated.div className="p-2 bg-gray-50 mb-1" style={ style }>

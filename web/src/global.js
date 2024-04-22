@@ -1,5 +1,11 @@
 import { createStore } from "react-hooks-global-state";
 
+import location from "./img/location.svg";
+import viber from "./img/viber.svg";
+import gmail from "./img/gmail.svg";
+import linkedin from "./img/linkedin.svg";
+import skype from "./img/skype.svg";
+
 import html5 from "./img/html5.png";
 import css3 from "./img/css3.png";
 import js from "./img/js.png";
@@ -14,7 +20,10 @@ import tailwind from "./img/tailwind.png";
 import vuejs from "./img/vuejs.png";
 import pixijs from "./img/pixijs.png";
 import phaserjs from "./img/phaserjs.png";
+import reactspring from "./img/react-spring.png";
+import gsap from "./img/gsap.png";
 import babylonjs from "./img/babylonjs.png";
+import axios from "./img/axios.png";
 import webpack from "./img/webpack.png";
 import firebase from "./img/firebase.png";
 
@@ -23,6 +32,16 @@ import mysql from "./img/mysql.png";
 import python from "./img/python.png";
 import mongodb from "./img/mongodb.png";
 import nodejs from "./img/nodejs.png";
+
+import dragonTiger from "./img/dragon-tiger.jpg";
+import puntoBanco from "./img/punto-banco.jpg";
+import threeFaces from "./img/3-faces-baccarat.jpg";
+import dominoQQ from "./img/domino-qq.jpg";
+import goldenBall from "./img/golden-power-ball.jpg";
+import hiloCard from "./img/hilo-card.jpg";
+import cryptoCrash from "./img/crypto-crash.png";
+import tambolaTropika from "./img/tambola-tropika.jpg";
+import keno from "./img/keno.png";
 
 const reducer = (state, action) => {
   	// console.log(state, action)
@@ -40,7 +59,7 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-	page: "home",
+	page: "contactme",
 	readyPage: true,
 	skillSet: [
 		{ n: "HTML5", img: html5, r: 10, y: 9 },
@@ -57,7 +76,10 @@ const initialState = {
 		{ n: "Vue.js", img: vuejs, r: 6, y: 1 },
 		{ n: "PixiJs", img: pixijs, r: 10, y: 3 },
 		{ n: "Phaser", img: phaserjs, r: 8, y: 2 },
+		{ n: "GSAP", img: gsap, r: 10, y: 9 },
+		{ n: "React Spring", img: reactspring, r: 7, y: 2 },
 		{ n: "Babylon.js", img: babylonjs, r: 8, y: 2 },
+		{ n: "Axios", img: axios, r: 10, y: 5 },
 		{ n: "Webpack", img: webpack, r: 10, y: 3 },
 		{ n: "Firebase", img: firebase, r: 7, y: 2 },
 		{ n: "PHP", img: php, r: 10, y: 7 },
@@ -106,7 +128,25 @@ const initialState = {
                     </svg>,
             n: "gaciloarielfrancis@gmail.com"
         }
-    ]
+    ],
+	portfolio: [
+		{ n: "Dragon Tiger", i: dragonTiger, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=dragontiger&vendor=W88&mode=try&lang=en" },
+		{ n: "Punto Banco", i: puntoBanco, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=puntobanco&vendor=W88&mode=try&lang=en" },
+		{ n: "Three Faces Baccarat", i: threeFaces, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=threefacesbaccarat&vendor=W88&mode=try&lang=en" },
+		{ n: "Domino QQ Virtual Dealer", i: dominoQQ, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=dominoqqvirtualdealer&vendor=W88&mode=try&lang=en" },
+		{ n: "Golden Power Ball", i: goldenBall, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=goldenpowerball&vendor=W88&mode=try&lang=en" },
+		{ n: "HiLo Card", i: hiloCard, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=hilocard&vendor=W88&mode=try&lang=en" },
+		{ n: "Crypto Crash", i: cryptoCrash, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://games.crescendoops.com/Login?vendor=W88&s=&lang=en&game=cryptocrash&mode=try" },
+		{ n: "Tambola Tropika", i: tambolaTropika, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=tambolatropika&vendor=W88&mode=try&lang=en" },
+		{ n: "Keno Mobile", i: keno, t: [html5, js, react, redux, reactspring, pixijs], l: "https://crescendogames.studio/Login?vendor=W88&s=&lang=en&game=newkeno&mode=try" },
+	],
+	contacts: [
+		{ i: location, n: "Bongabong, Oriental Mindoro, Philippines 5211" },
+        { i: viber, n: "+63 998 036 4770" },
+        { i: gmail, n: "gaciloarielfrancis@gmail.com" },
+		{ i: linkedin, n: "https://www.linkedin.com/in/ariel-francis-gacilo-01a694b0/" },
+		{ i: skype, n: "gaciloarielfrancis" }
+	]
 };
 
 export const { dispatch, useStoreState } = createStore(reducer, initialState);
