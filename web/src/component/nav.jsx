@@ -5,7 +5,7 @@ import { dispatch, useStoreState } from "../global";
 export const Navigation = () => {
 
     const page = useStoreState("page");
-    const links = [["Home", "home"], ["About Me", "aboutme"], ["Portfolio", "portfolio"], ["Contact Me", "contactme"]];
+    const links = [["Home", "home"], ["About Me", "aboutme"], ["Works", "portfolio"], ["Contact Me", "contactme"]];
 
     const [ props, animation ] = useSpring(
         () => ({ 
