@@ -37,17 +37,19 @@ export const Portfolio = () => {
                 }
             });
         }
-    }, [ page ])
+    }, [ page, hAnim ])
 
     return (
         <div className="block h-auto px-3 py-12 overflow-y-auto md:h-screen relative">
             <animated.h1 className="text-2xl text-center mb-10" style={ hStyle }>My Works</animated.h1>
-            <div className="flex flex-wrap justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {
                     portAnim((style, p, i) => (
-                        <animated.div className="mr-2 mb-2 inline-block w-full max-w-96 text-left relative" style={ style } key={ "port-" + i }>
-                            <img src={ p.i } className="w-36 h-36 inline-block align-top object-contain bg-gray-100" />
-                            <div className="inline-block ml-2 align-top">
+                        <animated.div className="flex mb-4" style={ style } key={ "port-" + i }>
+                            <div className="flex-none w-32">
+                                <img src={ p.i } className="w-32 h-32 inline-block align-top object-contain bg-gray-100" alt="portfolio-logo" />
+                            </div>
+                            <div className="w-full grow pl-2 relative">
                                 <h1 className="text-md">{ p.n }</h1>
                                 {
                                     p.t.map((t, x) => (
@@ -56,6 +58,7 @@ export const Portfolio = () => {
                                 }
                                 <a className="transition transition-all duration-300 absolute right-2 bottom-2 py-1 px-4 cursor-pointer bg-gray-500 text-white text-center hover:bg-black"
                                     target="_blank"
+                                    rel="noreferrer"
                                     href={ p.l }
                                 >
                                     View

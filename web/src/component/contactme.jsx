@@ -55,7 +55,7 @@ export const ContactMe = () => {
                 to: { y: 20, opacity: 0 }
             });
         }
-    }, [ page ])
+    }, [ page, hAnim, mapAnim ])
 
     return (
         <div className="block grid-flow-row-dense grid-cols-2 h-auto py-12 md:grid md:h-screen relative">
@@ -64,7 +64,7 @@ export const ContactMe = () => {
                 {
                     cont((style, item) => (
                         <animated.div className="mb-4" style={ style }>
-                            <img src={ item.i } className="w-6 h-6 inline-block mr-2" />
+                            <img src={ item.i } className="w-6 h-6 inline-block mr-2" alt="full-body" />
                             <label className="text-gray-600">{ item.n }</label>
                         </animated.div>
                     ))
@@ -76,7 +76,7 @@ export const ContactMe = () => {
                         mapTypeControl={ false } streetViewControl={ false } zoomControl={ false }
                         styles={ mapStyles }>
                         <InfoWindow position={ position }>
-                            <img src={ profile } className="w-14 bg-gray-100 rounded-full" />
+                            <img src={ profile } className="w-14 bg-gray-100 rounded-full" alt="avatar" />
                         </InfoWindow>
                     </Map>
                 </APIProvider>

@@ -26,12 +26,15 @@ import babylonjs from "./img/babylonjs.png";
 import axios from "./img/axios.png";
 import webpack from "./img/webpack.png";
 import firebase from "./img/firebase.png";
+import mui from "./img/mui.png";
 
 import php from "./img/php.png";
 import mysql from "./img/mysql.png";
 import python from "./img/python.png";
 import mongodb from "./img/mongodb.png";
 import nodejs from "./img/nodejs.png";
+import symfony from "./img/symfony.webp";
+import pg from "./img/pg.webp";
 
 import dragonTiger from "./img/dragon-tiger.jpg";
 import puntoBanco from "./img/punto-banco.jpg";
@@ -42,6 +45,8 @@ import hiloCard from "./img/hilo-card.jpg";
 import cryptoCrash from "./img/crypto-crash.png";
 import tambolaTropika from "./img/tambola-tropika.jpg";
 import keno from "./img/keno.png";
+import mdc from "./img/mdc.png";
+import leiprime from "./img/leiprime.png";
 
 const reducer = (state, action) => {
   	// console.log(state, action)
@@ -62,31 +67,34 @@ const initialState = {
 	page: "home",
 	readyPage: true,
 	skillSet: [
-		{ n: "HTML5", img: html5, r: 10, y: 9 },
-		{ n: "CSS3", img: css3, r: 10, y: 9 },
-		{ n: "JavaScript", img: js, r: 10, y: 9 },
-		{ n: "TypeScript", img: typescript, r: 10, y: 3 },
-		{ n: "jQuery", img: jquery, r: 10, y: 9 },
-		{ n: "Bootstrap", img: bootstrap, r: 10, y: 9 },
-		{ n: "Ionic", img: ionic, r: 8, y: 3 },
-		{ n: "React", img: react, r: 10, y: 3 },
-		{ n: "Redux", img: redux, r: 10, y: 3 },
-		{ n: "Next.js", img: nextjs, r: 7, y: 1 },
-		{ n: "Tailwind CSS", img: tailwind, r: 8, y: 1 },
-		{ n: "Vue.js", img: vuejs, r: 6, y: 1 },
-		{ n: "PixiJs", img: pixijs, r: 10, y: 3 },
-		{ n: "Phaser", img: phaserjs, r: 8, y: 2 },
-		{ n: "GSAP", img: gsap, r: 10, y: 9 },
-		{ n: "React Spring", img: reactspring, r: 7, y: 2 },
-		{ n: "Babylon.js", img: babylonjs, r: 8, y: 2 },
 		{ n: "Axios", img: axios, r: 10, y: 5 },
-		{ n: "Webpack", img: webpack, r: 10, y: 3 },
+		{ n: "Babylon.js", img: babylonjs, r: 8, y: 2 },
+		{ n: "Bootstrap", img: bootstrap, r: 10, y: 9 },
+		{ n: "CSS3", img: css3, r: 10, y: 9 },
 		{ n: "Firebase", img: firebase, r: 7, y: 2 },
-		{ n: "PHP", img: php, r: 10, y: 7 },
-		{ n: "MySQL/MySQLi", img: mysql, r: 10, y: 7 },
-		{ n: "Python", img: python, r: 8, y: 2 },
+		{ n: "GSAP", img: gsap, r: 10, y: 9 },
+		{ n: "HTML5", img: html5, r: 10, y: 9 },
+		{ n: "Ionic", img: ionic, r: 8, y: 3 },
+		{ n: "JavaScript", img: js, r: 10, y: 9 },
+		{ n: "jQuery", img: jquery, r: 10, y: 9 },
+		{ n: "Material UI", img: mui, r: 10, y: 2 },
 		{ n: "MongoDB", img: mongodb, r: 8, y: 2 },
+		{ n: "MySQL/MySQLi", img: mysql, r: 10, y: 7 },
+		{ n: "Next.js", img: nextjs, r: 7, y: 1 },
 		{ n: "Node.js", img: nodejs, r: 9, y: 7 },
+		{ n: "Phaser", img: phaserjs, r: 8, y: 2 },
+		{ n: "PHP", img: php, r: 10, y: 7 },
+		{ n: "PixiJs", img: pixijs, r: 10, y: 3 },
+		{ n: "PostgreSQL", img: pg, r: 10, y: 3 },
+		{ n: "Python", img: python, r: 8, y: 2 },
+		{ n: "React", img: react, r: 10, y: 3 },
+		{ n: "React Spring", img: reactspring, r: 7, y: 2 },
+		{ n: "Redux", img: redux, r: 10, y: 3 },
+		{ n: "Symfony", img: symfony, r: 10, y: 3 },
+		{ n: "Tailwind CSS", img: tailwind, r: 8, y: 2 },
+		{ n: "TypeScript", img: typescript, r: 10, y: 3 },
+		{ n: "Vue.js", img: vuejs, r: 6, y: 1 },
+		{ n: "Webpack", img: webpack, r: 10, y: 3 },
 	],
 	experience: [
 		{ c: "Blueline Active Asia", p: "Game Developer", y: "October 2021 - April 2024" },
@@ -139,6 +147,8 @@ const initialState = {
 		{ n: "Crypto Crash", i: cryptoCrash, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://games.crescendoops.com/Login?vendor=W88&s=&lang=en&game=cryptocrash&mode=try" },
 		{ n: "Tambola Tropika", i: tambolaTropika, t: [html5, typescript, react, pixijs, gsap, webpack], l: "https://lottery.gpistaging.com/Login?game=tambolatropika&vendor=W88&mode=try&lang=en" },
 		{ n: "Keno Mobile", i: keno, t: [html5, js, react, redux, reactspring, pixijs], l: "https://crescendogames.studio/Login?vendor=W88&s=&lang=en&game=newkeno&mode=try" },
+		{ n: "Lei Prime", i: leiprime, t: [html5, js, react, tailwind, php, symfony, mysql], l: "https://leiprime.com" },
+		{ n: "My Dominion Corp", i: mdc, t: [html5, js, react, tailwind, mui, php, symfony, mysql], l: "https://mydominioncorp.com" },
 	],
 	contacts: [
 		{ i: location, n: "Bongabong, Oriental Mindoro, Philippines 5211" },

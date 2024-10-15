@@ -105,7 +105,7 @@ export const AboutMe = () => {
                 }
             });
         }
-    }, [ page ])
+    }, [ page, imgAnim ])
 
     return (
         <div className="block grid-flow-row-dense grid-cols-2 h-auto py-12 md:grid md:h-screen relative">

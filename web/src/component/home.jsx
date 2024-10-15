@@ -1,6 +1,6 @@
 import { useSpring, animated, easings  } from "@react-spring/web"
 import funkz from "../img/funkz.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { dispatch, useStoreState } from "../global";
 
 export const Home = () => {
@@ -80,7 +80,7 @@ export const Home = () => {
             </div>
             <div className="basis-1/2 grid content-center">
                 <animated.h1 style={{ ...h1Props }} className="text-2xl mr-4 md:relative">Ariel Francis Fernando Gacilo</animated.h1>
-                <animated.h2 style={{ ...h2Props }} className="text-xl text-slate-700 mr-4 md:relative">Full-Stack / Game Developer</animated.h2>
+                <animated.h2 style={{ ...h2Props }} className="text-xl text-slate-700 mr-4 md:relative">Full-Stack Developer</animated.h2>
                 <animated.q style={{ ...qProps }} className="text-base text-slate-600 max-w-md mt-4 mr-4 md:relative">To obtain a challenging position in an organization that will capitalize on my skills and experiences as a programmer.</animated.q>
             </div>
         </div>
