@@ -35,6 +35,7 @@ import mongodb from "./img/mongodb.png";
 import nodejs from "./img/nodejs.png";
 import symfony from "./img/symfony.webp";
 import pg from "./img/pg.webp";
+import vite from "./img/vite.svg";
 
 import dragonTiger from "./img/dragon-tiger.jpg";
 import puntoBanco from "./img/punto-banco.jpg";
@@ -47,6 +48,7 @@ import tambolaTropika from "./img/tambola-tropika.jpg";
 import keno from "./img/keno.png";
 import mdc from "./img/mdc.png";
 import leiprime from "./img/leiprime.png";
+import imageTools from "./img/image-tools.svg";
 
 const reducer = (state, action) => {
   	// console.log(state, action)
@@ -91,9 +93,9 @@ const initialState = {
 		{ n: "React Spring", img: reactspring, r: 7, y: 2 },
 		{ n: "Redux", img: redux, r: 10, y: 3 },
 		{ n: "Symfony", img: symfony, r: 10, y: 3 },
-		{ n: "Tailwind CSS", img: tailwind, r: 8, y: 2 },
+		{ n: "Tailwind CSS", img: tailwind, r: 10, y: 3 },
 		{ n: "TypeScript", img: typescript, r: 10, y: 3 },
-		{ n: "Vue.js", img: vuejs, r: 6, y: 1 },
+		{ n: "Vue.js", img: vuejs, r: 8, y: 2 },
 		{ n: "Webpack", img: webpack, r: 10, y: 3 },
 	],
 	experience: [
@@ -149,6 +151,8 @@ const initialState = {
 		{ n: "Keno Mobile", i: keno, t: [html5, js, react, redux, reactspring, pixijs], l: "https://crescendogames.studio/Login?vendor=W88&s=&lang=en&game=newkeno&mode=try" },
 		{ n: "Lei Prime", i: leiprime, t: [html5, js, react, tailwind, php, symfony, mysql], l: "https://leiprime.com" },
 		{ n: "My Dominion Corp", i: mdc, t: [html5, js, react, tailwind, mui, php, symfony, mysql], l: "https://mydominioncorp.com" },
+		{ n: "CSS Spritesheet", i: imageTools, t: [html5, js, css3], l: "https://gaciloarielfrancis.github.io/CSS-Spritesheet/" },
+		{ n: "GIF to Spritesheet", i: imageTools, t: [html5, typescript, react, tailwind, vite], l: "https://gaciloarielfrancis.github.io/GIF-To-Spritesheet" },
 	],
 	contacts: [
 		{ i: location, n: "Bongabong, Oriental Mindoro, Philippines 5211" },
