@@ -1,6 +1,23 @@
 import { profile } from '../data'
 import { Reveal } from './Reveal'
 import { useTheme } from '../hooks/useTheme.jsx'
+import profilePhoto from '../assets/projects/profile.png'
+import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps'
+
+const ROXAS = { lat: 12.5857, lng: 121.5144 }
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || 'AIzaSyCok2WHd10-T1FV3KFbKYoxH_joD5bmjL8'
+
+function ProfileMarker() {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="w-[56px] h-[56px] rounded-full border-[3px] border-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] overflow-hidden bg-white">
+        <img src={profilePhoto} alt="Ariel Francis Gacilo" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+      </div>
+      <div className="w-3.5 h-3.5 rotate-45 -mt-2 bg-white border-r border-b border-slate-200 shadow-md" />
+      <div className="w-2 h-2 rounded-full bg-white border-2 border-slate-900 -mt-[7px] shadow" />
+    </div>
+  )
+}
 
 export default function Contact() {
   const { theme } = useTheme()
@@ -35,7 +52,7 @@ export default function Contact() {
                 </a>
                 <div className="flex items-center gap-4">
                   <span className={`w-11 h-11 grid place-items-center rounded-full ${isLight ? 'bg-slate-900 text-white' : 'bg-ink text-white'}`}>◉</span>
-                  <span><span className={`block text-xs tracking-widest uppercase font-mono ${isLight ? 'text-slate-500' : 'text-ink/60'}`}>Location</span><span className={`block font-medium ${isLight ? 'text-slate-900' : 'text-ink'}`}>{profile.location}</span></span>
+                  <span><span className={`block text-xs tracking-widest uppercase font-mono ${isLight ? 'text-slate-500' : 'text-ink/60'}`}>Location</span><span className={`block font-medium ${isLight ? 'text-slate-900' : 'text-ink'}`}>Roxas, Oriental Mindoro, Philippines 5212</span></span>
                 </div>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-3">
@@ -68,6 +85,45 @@ export default function Contact() {
             </form>
           </Reveal>
         </div>
+
+        {/* Google Map — Roxas 5212 with profile marker that moves with map */}
+        <Reveal delay={0.1}>
+          <div className={`mt-8 rounded-[20px] overflow-hidden border shadow-card ${isLight ? 'bg-white border-slate-200 shadow-cardLight' : 'bg-[#0f111a] border-white/10'}`}>
+            <div className="relative h-[300px] sm:h-[360px] w-full">
+              <APIProvider apiKey={API_KEY}>
+                <Map
+                  defaultCenter={ROXAS}
+                  defaultZoom={13}
+                  mapId="ROXAS_5212_DEMO"
+                  gestureHandling="greedy"
+                  disableDefaultUI={false}
+                  className="w-full h-full"
+                  style={{ width: '100%', height: '100%' }}
+                >
+                  <AdvancedMarker position={ROXAS} title="Ariel Francis Gacilo — Roxas 5212">
+                    <ProfileMarker />
+                  </AdvancedMarker>
+                </Map>
+              </APIProvider>
+
+              {/* bottom info card — stays fixed over map, not a marker */}
+              <div className={`absolute left-3 right-3 bottom-3 sm:left-4 sm:right-auto flex items-center gap-3 rounded-2xl border backdrop-blur px-4 py-3 shadow-lg ${isLight ? 'bg-white/90 border-slate-200' : 'bg-[#0f111a]/85 border-white/10'}`}>
+                <span className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-md shrink-0 bg-white">
+                  <img src={profilePhoto} alt="Ariel Francis Gacilo" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+                </span>
+                <div>
+                  <div className={`text-sm font-semibold leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>Roxas, Oriental Mindoro, Philippines 5212</div>
+                  <div className={`text-xs ${isLight ? 'text-slate-500' : 'text-white/60'}`}>Pinned — Eastern Mindoro • UTC+8 • Available for remote</div>
+                </div>
+                <a href="https://www.google.com/maps/search/Roxas,+Oriental+Mindoro,+Philippines+5212" target="_blank" rel="noreferrer" className={`hidden sm:inline-flex ml-2 rounded-full px-3 py-1.5 text-xs font-semibold border ${isLight ? 'bg-slate-900 text-white border-slate-900 hover:bg-slate-800' : 'bg-white text-ink border-white hover:bg-zinc-100'}`}>Open Maps ↗</a>
+              </div>
+            </div>
+            <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-4 sm:px-5 py-3 text-xs ${isLight ? 'bg-slate-50 border-t border-slate-200 text-slate-600' : 'bg-[#0a0a0f]/60 border-t border-white/5 text-white/50'}`}>
+              <span className="font-mono">12.5857° N, 121.5144° E • Roxas 5212 • marker follows map</span>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Roxas,Oriental+Mindoro,Philippines+5212" target="_blank" rel="noreferrer" className={`hover:underline ${isLight ? 'text-slate-700' : 'text-white/70'}`}>Get directions →</a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.3.0",
+    "@vis.gl/react-google-maps": "^1.9.0",
     "framer-motion": "^12.23.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
