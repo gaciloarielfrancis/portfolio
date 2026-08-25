@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Portfolio 3D — Ariel Francis Gacilo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Premium, interactive 3D developer portfolio for a Senior Frontend & Game Developer.
 
-## Available Scripts
+## Stack
+- **Vite 8 + React 19** (ESM, HMR, Rolldown)
+- **Tailwind CSS 3.4** — dark premium design system
+- **Three.js + @react-three/fiber + @react-three/drei** — workstation 3D scene
+- **Framer Motion 12** — intentional, spring-based reveals & modals
+- Fonts: Inter, Space Grotesk, JetBrains Mono (Google Fonts)
 
-In the project directory, you can run:
+## Structure
+```
+src/
+  data.js              // curated from legacy global.js — 13 projects, 3 roles, 27 skills
+  assets.js            // explicit image map (only 12 portfolio images + profile)
+  assets/projects/     // optimized portfolio screenshots
+  components/
+    Nav.jsx            // floating glass nav, active section, mobile sheet
+    Hero.jsx           // badge, stats, CTAs + lazy 3D workstation
+    scene/WorkstationScene.jsx // R3F Canvas — 3 floating panels, grid, lights, mouse parallax
+    About.jsx          // 4 cards + philosophy
+    Skills.jsx         // 4 groups (Frontend/Game/Backend/Tooling) with level bars
+    Projects.jsx       // filterable grid + tilt + case-study modal
+    Experience.jsx     // timeline + devRoles
+    Terminal.jsx       // typewriter interactive terminal
+    Contact.jsx        // mailto form, direct links
+    Reveal.jsx         // reduced-motion-aware reveal
+  App.jsx, main.jsx, index.css
+public/
+  favicon.svg, icon.png, robots.txt, sitemap.xml
+```
 
-### `npm start`
+## Run
+```bash
+cd web
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # dist/
+npm run preview  # preview prod at 4173
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Design Decisions
+- **Preserved content**: all 13 legacy projects (8 casino + Keno + 2 corporate + 2 tools), 3 experiences, 27 skills — re-grouped, not invented.
+- **3D**: lightweight low-poly workstation (no heavy models) — Grid + 3 Float panels + point lights. `dpr: [1,1.6]`, `prefers-reduced-motion` disables WebGL, mobile simplifies to CSS fallback.
+- **Performance**: lazy `WorkstationScene` (`Suspense`), code-split vendor (857KB gz 227KB), explicit image imports (only 12 images), `will-change`, RAF-throttled mouse, `content-visibility` via Reveal.
+- **A11y**: semantic headings, `aria-current`, `focus-visible`, keyboardable tilt cards & modal, `prefers-reduced-motion` disables springs & 3D.
+- **SEO**: title/meta/OG/Twitter, semantic sections with ids, sitemap.xml + robots.txt.
+- **Recruiter UX**: 10s scan strip, featured filters, stats, sticky CTAs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Performance Notes
+- `npm run build`: `index 371KB gz 114KB + WorkstationScene 857KB gz 227KB + CSS 27KB`
+- Legacy tech icons not bundled (saved ~600KB), profile 282KB remains — next step: convert to WebP/AVIF + lazy.
+- Vite Rolldown, no `manualChunks` object (unsupported).
 
-### `npm test`
+## TODOs
+- [ ] Convert `profile.png` + portfolio JPGs to WebP/AVIF + `srcset`
+- [ ] Add real `og-cover.png` (1200×630)
+- [ ] Restrict & env-var Google Maps if re-adding map (removed hardcoded key)
+- [ ] Add Vitest + axe audit
+- [ ] Deploy to Cloudflare Pages / GitHub Pages (`homepage: "./"` handled via Vite `base`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Legacy backup: `web-legacy/` (original CRA). Remove before publishing if desired.
