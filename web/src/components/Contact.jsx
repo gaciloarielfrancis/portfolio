@@ -6,8 +6,8 @@ export default function Contact() {
   const { theme } = useTheme()
   const isLight = theme === 'light'
   return (
-    <section id="contact" className={`relative overflow-hidden border-t transition-colors duration-300 ${isLight ? 'bg-white border-slate-200' : 'border-white/5'}`}>
-      <div className={`absolute inset-0 ${isLight ? 'bg-gradient-to-b from-[#f8fafc] via-white to-white' : 'bg-gradient-to-b from-[#0b0c14] via-ink to-[#0b0c14]'}`} />
+    <section id="contact" className={`relative overflow-hidden border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'border-white/5 bg-ink/80'}`}>
+      <div className={`absolute inset-0 ${isLight ? 'bg-gradient-to-b from-white/60 via-[#f8fafc]/60 to-white/80' : 'bg-gradient-to-b from-[#0b0c14]/60 via-ink/60 to-[#0b0c14]/80'}`} />
       <div className="absolute inset-0 opacity-30" style={{ background: 'radial-gradient(700px 400px at 50% 0%, rgba(124,92,255,0.25), transparent 60%)' }} />
       <div className="relative mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>

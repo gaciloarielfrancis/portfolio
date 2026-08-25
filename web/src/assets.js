@@ -11,6 +11,7 @@ import mdc from './assets/projects/mdc.png'
 import leiprime from './assets/projects/leiprime.png'
 import imageTools from './assets/projects/image-tools.svg'
 import profile from './assets/projects/profile.png'
+import heroFullBody from './assets/hero-fullbody.png'
 
 export const projectImages = {
   'dragon-tiger.jpg': dragonTiger,
@@ -26,4 +27,4 @@ export const projectImages = {
   'leiprime.png': leiprime,
   'image-tools.svg': imageTools,
 }
-export { profile }
+export { profile, heroFullBody }

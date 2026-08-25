@@ -32,7 +32,7 @@ export default function Terminal() {
   }, [typed, showOut, idx])
 
   return (
-    <section className={`relative border-t transition-colors duration-300 ${isLight ? 'bg-[#f8fafc] border-slate-200' : 'bg-[#0b0c14] border-white/5'}`}>
+    <section className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'bg-[#0b0c14]/80 border-white/5'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <div className={`rounded-[20px] overflow-hidden border shadow-card ${isLight ? 'bg-[#0f111a] border-slate-200 shadow-cardLight' : 'bg-[#0f111a] border-white/10'}`}>
           <div className="flex items-center gap-2 px-4 sm:px-5 py-3 border-b border-white/5 bg-white/[0.02]">

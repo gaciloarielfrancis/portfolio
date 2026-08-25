@@ -150,7 +150,7 @@ export default function Projects() {
   const cats = ['All', 'Featured', 'Casino Game', 'Lottery', 'Corporate Platform', 'Dev Tool']
   const list = projects.filter(p => { if (filter === 'All') return true; if (filter === 'Featured') return p.featured; if (filter === 'Casino Game') return p.category.includes('Casino') || p.category === 'Real-time Game'; return p.category === filter })
   return (
-    <section id="projects" className={`relative border-t transition-colors duration-300 ${isLight ? 'bg-[#f8fafc] border-slate-200' : 'bg-[#0b0c14] border-white/5'}`}>
+    <section id="projects" className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'bg-[#0b0c14]/80 border-white/5'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Featured Projects — 13 shipped</p>

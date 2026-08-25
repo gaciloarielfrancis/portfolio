@@ -1,10 +1,8 @@
-import { useEffect, useState, lazy, Suspense } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { profile, stats } from '../data'
-import { profile as profileImg } from '../assets'
+import { profile as profileImg, heroFullBody } from '../assets'
 import { useTheme } from '../hooks/useTheme.jsx'
-
-const WorkstationScene = lazy(() => import('./scene/WorkstationScene'))
 
 export default function Hero() {
   const { theme } = useTheme()
@@ -101,24 +99,42 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22,1,0.36,1] }}
-            className="relative lg:h-[560px] h-[380px] sm:h-[460px]"
-            style={{ transform: reduced ? undefined : `perspective(1200px) rotateY(${mouse.x * -2}deg) rotateX(${mouse.y * 1.5}deg)` }}
+            className="relative lg:h-[560px] h-[520px] sm:h-[560px] flex items-center justify-center"
+            style={{ transform: reduced ? undefined : `perspective(1200px) rotateY(${mouse.x * -1.5}deg) rotateX(${mouse.y * 1}deg)` }}
           >
-            <div className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-[#7c5cff]/20 via-transparent to-[#22d3ee]/20 blur-xl" />
-            <div className="relative h-full">
-              <Suspense fallback={
-                <div className={`w-full h-full rounded-[24px] border animate-pulse grid place-items-center font-mono text-sm ${isLight ? 'bg-white border-slate-200 text-slate-500' : 'bg-white/5 border-white/10 text-white/60'}`}>Loading 3D workspace…</div>
-              }>
-                <WorkstationScene mouse={mouse} reduced={reduced} />
-              </Suspense>
+            {/* cool background design */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className={`absolute w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full blur-[50px] opacity-60 ${isLight ? 'bg-gradient-to-br from-[#7c5cff]/15 via-[#22d3ee]/10 to-[#a78bfa]/10' : 'bg-gradient-to-br from-[#7c5cff]/20 via-[#22d3ee]/10 to-[#a78bfa]/15'}`} />
+              <div className={`absolute w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] rounded-full border-2 border-dashed ${isLight ? 'border-slate-200' : 'border-white/10'} opacity-40 animate-spin`} style={{ animationDuration: '24s' }} />
+              <div className={`absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] rounded-full border ${isLight ? 'border-slate-200 bg-white/60' : 'border-white/5 bg-white/[0.02]'} backdrop-blur-sm`} />
+              {/* subtle grid */}
+              <div className={`absolute inset-0 rounded-[28px] opacity-[0.03] ${isLight ? 'bg-slate-900' : 'bg-white'}`} style={{ backgroundImage: `linear-gradient(${isLight ? 'rgba(15,23,42,0.08)' : 'rgba(255,255,255,0.08)'} 1px, transparent 1px), linear-gradient(90deg, ${isLight ? 'rgba(15,23,42,0.08)' : 'rgba(255,255,255,0.08)'} 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
             </div>
-
-            <div className={`pointer-events-none absolute -left-2 sm:left-0 top-6 hidden sm:flex items-center gap-2 rounded-full px-3 py-2 shadow-card text-xs font-semibold ${isLight ? 'bg-slate-900 text-white' : 'bg-white text-ink'}`}>
-              <span className="w-2 h-2 rounded-full bg-emerald-500" /> Production games shipped
+            {/* platform shadow */}
+            <div className={`absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-[220px] sm:w-[280px] h-[18px] blur-xl rounded-full ${isLight ? 'bg-slate-900/10' : 'bg-black/30'}`} />
+            {/* image container */}
+            <div className="relative w-full h-full max-w-[340px] sm:max-w-[400px] mx-auto flex items-end justify-center">
+              <img src={heroFullBody} alt="Ariel Francis Gacilo — Senior Frontend & Game Developer" loading="eager" decoding="async" className="w-full h-auto max-h-[460px] sm:max-h-[520px] lg:max-h-[540px] object-contain object-bottom drop-shadow-[0_24px_48px_rgba(0,0,0,0.18)] select-none" style={{ filter: isLight ? 'drop-shadow(0 20px 30px rgba(15,23,42,0.12))' : 'drop-shadow(0 20px 40px rgba(0,0,0,0.35))' }} />
+              {/* bottom fade for seamless integration */}
+              <div className={`absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t pointer-events-none ${isLight ? 'from-[#f8fafc] via-[#f8fafc]/60 to-transparent' : 'from-ink via-ink/40 to-transparent'} sm:hidden`} />
             </div>
-            <div className={`pointer-events-none absolute -right-2 sm:right-2 bottom-20 hidden sm:flex items-center gap-2 rounded-full px-3 py-2 shadow-card text-xs font-mono border ${isLight ? 'bg-white border-slate-200 text-slate-600' : 'bg-[#0f111a] border-white/10 text-white'}`}>
-              <span className={isLight ? 'text-slate-400' : 'text-white/60'}>Stack</span> React • PixiJS • GSAP
+            {/* floating tech badges — cool design */}
+            <div className={`absolute top-6 -left-1 sm:left-0 hidden sm:flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold shadow-lg border backdrop-blur ${isLight ? 'bg-white border-slate-200 text-slate-700' : 'bg-white text-ink border-white'}`}>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> 10+ Years Shipping
             </div>
+            <div className={`absolute top-10 -right-1 sm:right-2 hidden sm:flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-mono shadow-lg border backdrop-blur ${isLight ? 'bg-white border-slate-200 text-slate-600' : 'bg-[#0f111a] border-white/10 text-white'}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${isLight ? 'bg-[#7c5cff]' : 'bg-accent'}`} /> React
+            </div>
+            <div className={`absolute bottom-20 -left-2 sm:left-2 hidden sm:flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold shadow-lg border backdrop-blur ${isLight ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-ink border-white'}`}>
+              PixiJS • WebGL
+            </div>
+            <div className={`absolute bottom-28 -right-2 sm:right-4 hidden sm:flex items-center gap-2 rounded-full px-3 py-2 text-xs font-mono shadow-lg border backdrop-blur ${isLight ? 'bg-white border-slate-200 text-slate-600' : 'bg-white/10 border-white/10 text-white backdrop-blur'}`}>
+              <span className="w-2 h-2 rounded-full bg-[#22d3ee] animate-pulse" /> GSAP • 60fps
+            </div>
+            {/* decorative dots */}
+            <div className={`absolute top-16 right-6 sm:right-10 w-2 h-2 rounded-full ${isLight ? 'bg-slate-300' : 'bg-white/20'} hidden sm:block`} />
+            <div className={`absolute bottom-32 left-4 w-1.5 h-1.5 rounded-full ${isLight ? 'bg-[#7c5cff]/40' : 'bg-accent/40'} hidden sm:block`} />
+            <div className="absolute inset-0 rounded-[28px] pointer-events-none border-2 border-transparent" />
           </motion.div>
         </div>
 

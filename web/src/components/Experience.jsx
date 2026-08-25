@@ -6,7 +6,7 @@ export default function Experience() {
   const { theme } = useTheme()
   const isLight = theme === 'light'
   return (
-    <section id="experience" className={`relative border-t transition-colors duration-300 ${isLight ? 'bg-[#f8fafc] border-slate-200' : 'bg-ink border-white/5'}`}>
+    <section id="experience" className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-[#f8fafc]/70 border-slate-200' : 'bg-ink/80 border-white/5'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Experience • Timeline</p>

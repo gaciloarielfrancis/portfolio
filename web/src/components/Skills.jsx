@@ -107,7 +107,7 @@ export default function Skills() {
   const hasMore = group.items.length > VISIBLE
 
   return (
-    <section id="skills" className={`relative border-t overflow-hidden transition-colors duration-300 ${isLight ? 'bg-[#f8fafc] border-slate-200' : 'bg-ink border-white/5'}`}>
+    <section id="skills" className={`relative border-t overflow-hidden backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-[#f8fafc]/70 border-slate-200' : 'bg-ink/80 border-white/5'}`}>
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 -left-32 w-[640px] h-[640px] rounded-full blur-[120px] opacity-[0.08]" style={{ background: `radial-gradient(circle, ${group.accent} 0%, transparent 70%)` }} />
         <div className={`absolute top-40 -right-32 w-[560px] h-[560px] rounded-full blur-[120px] ${isLight ? 'opacity-[0.04]' : 'opacity-[0.06]'}`} style={{ background: 'radial-gradient(circle, #ffffff 0%, transparent 70%)' }} />

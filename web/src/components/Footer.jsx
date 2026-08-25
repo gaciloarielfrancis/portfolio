@@ -4,7 +4,7 @@ export default function Footer(){
   const { theme } = useTheme()
   const isLight = theme === 'light'
   return (
-    <footer className={`border-t transition-colors duration-300 ${isLight ? 'border-slate-200 bg-white' : 'border-white/5 bg-ink'}`}>
+    <footer className={`border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'border-slate-200 bg-white/70' : 'border-white/5 bg-ink/80'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-8 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm">
         <div className="flex items-center gap-3">
           <span className={`w-8 h-8 grid place-items-center rounded-full font-bold text-xs ${isLight ? 'bg-slate-900 text-white' : 'bg-white text-ink'}`}>AF</span>
