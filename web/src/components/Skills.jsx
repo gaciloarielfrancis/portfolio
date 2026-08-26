@@ -4,9 +4,10 @@ import {
   SiReact, SiTypescript, SiJavascript, SiHtml5, SiCss,
   SiTailwindcss, SiVuedotjs, SiRedux, SiNextdotjs, SiVite, SiWebpack,
   SiMui, SiBootstrap, SiJquery, SiIonic,
-  SiGsap, SiBabylondotjs, SiWebgl,
-  SiNodedotjs, SiPhp, SiSymfony, SiPython, SiPostgresql, SiMysql, SiMongodb, SiFirebase,
-  SiAxios, SiGit, SiGoogle, SiLighthouse, SiAppstore
+  SiNodedotjs, SiExpress, SiPhp, SiSymfony, SiPython, SiPostgresql, SiMysql, SiMongodb, SiFirebase, SiPrisma,
+  SiNginx, SiDocker, SiCloudflare, SiGithub, SiGithubactions, SiLinux, SiPm2,
+  SiAxios, SiGoogle, SiLighthouse, SiAppstore,
+  SiGsap, SiBabylondotjs, SiWebgl
 } from 'react-icons/si'
 import pixiIcon from '../assets/tech/pixijs.png'
 import { Reveal } from './Reveal'
@@ -22,50 +23,71 @@ const iconMap = {
   'Tailwind CSS': { Icon: SiTailwindcss, color: '#06B6D4' },
   'Vue.js': { Icon: SiVuedotjs, color: '#4FC08D' },
   'Redux': { Icon: SiRedux, color: '#764ABC' },
-  'Next.js': { Icon: SiNextdotjs, color: '#FFFFFF' },
+  'Next.js': { Icon: SiNextdotjs, color: '#000000', lightColor: '#000000', darkColor: '#FFFFFF' },
   'Vite': { Icon: SiVite, color: '#646CFF' },
   'Webpack': { Icon: SiWebpack, color: '#8DD6F9' },
   'Material UI': { Icon: SiMui, color: '#007FFF' },
   'Bootstrap': { Icon: SiBootstrap, color: '#7952B3' },
   'jQuery': { Icon: SiJquery, color: '#0769AD' },
   'Ionic': { Icon: SiIonic, color: '#3880FF' },
+
+  'Node.js': { Icon: SiNodedotjs, color: '#339933' },
+  'Express': { Icon: SiExpress, color: '#000000', lightColor: '#000000', darkColor: '#FFFFFF' },
+  'PHP': { Icon: SiPhp, color: '#777BB4' },
+  'Symfony': { Icon: SiSymfony, color: '#000000', lightColor: '#000000', darkColor: '#FFFFFF' },
+  'Python': { Icon: SiPython, color: '#3776AB' },
+  'REST APIs': { Icon: SiAxios, color: '#5A29E4' },
+  'Axios': { Icon: SiAxios, color: '#5A29E4' },
+  'Firebase': { Icon: SiFirebase, color: '#FFCA28' },
+
+  'PostgreSQL': { Icon: SiPostgresql, color: '#4169E1' },
+  'MySQL / MySQLi': { Icon: SiMysql, color: '#4479A1' },
+  'MySQL / MySQLi_dup': { Icon: SiMysql, color: '#4479A1' },
+  'MongoDB': { Icon: SiMongodb, color: '#47A248' },
+  'Prisma': { Icon: SiPrisma, color: '#2D3748', lightColor: '#2D3748', darkColor: '#FFFFFF' },
+  'Database Design': { Icon: SiMongodb, color: '#47A248' },
+
+  'Nginx': { Icon: SiNginx, color: '#009639' },
+  'PM2': { Icon: SiPm2, color: '#2B037A', lightColor: '#2B037A', darkColor: '#FFFFFF' },
+  'Docker': { Icon: SiDocker, color: '#2496ED' },
+  'Cloudflare': { Icon: SiCloudflare, color: '#F38020' },
+  'Git & GitHub': { Icon: SiGithub, color: '#181717', lightColor: '#181717', darkColor: '#FFFFFF' },
+  'GitHub Actions': { Icon: SiGithubactions, color: '#2088FF' },
+  'Linux Server Mgmt': { Icon: SiLinux, color: '#FCC624' },
+  'App Store Deploy': { Icon: SiAppstore, color: '#0A84FF' },
+  'SEO / Open Graph': { Icon: SiGoogle, color: '#4285F4' },
+  'Performance Opt.': { Icon: SiLighthouse, color: '#F44B21' },
+
   'PixiJs': { img: pixiIcon },
   'Phaser': { Icon: SiWebgl, color: '#76B900' },
   'GSAP': { Icon: SiGsap, color: '#88CE02' },
   'React Spring': { Icon: SiReact, color: '#FF4154' },
   'Babylon.js': { Icon: SiBabylondotjs, color: '#BB464B' },
   'WebGL / Canvas': { Icon: SiWebgl, color: '#990000' },
-  'Node.js': { Icon: SiNodedotjs, color: '#339933' },
-  'PHP': { Icon: SiPhp, color: '#777BB4' },
-  'Symfony': { Icon: SiSymfony, color: '#FFFFFF' },
-  'Python': { Icon: SiPython, color: '#3776AB' },
-  'PostgreSQL': { Icon: SiPostgresql, color: '#4169E1' },
-  'MySQL/MySQLi': { Icon: SiMysql, color: '#4479A1' },
-  'MySQL / MySQLi': { Icon: SiMysql, color: '#4479A1' },
-  'MongoDB': { Icon: SiMongodb, color: '#47A248' },
-  'Firebase': { Icon: SiFirebase, color: '#FFCA28' },
-  'Axios': { Icon: SiAxios, color: '#5A29E4' },
-  'Git & GitHub': { Icon: SiGit, color: '#F05032' },
-  'SEO / Open Graph': { Icon: SiGoogle, color: '#4285F4' },
-  'Performance Opt.': { Icon: SiLighthouse, color: '#F44B21' },
-  'App Store Deploy': { Icon: SiAppstore, color: '#0A84FF' },
 }
 
-function TechIcon({ name }) {
+// need to handle duplicate key for MySQL
+iconMap['MySQL/MySQLi'] = iconMap['MySQL / MySQLi']
+
+function TechIcon({ name, isLight }) {
   const entry = iconMap[name] || {}
   if (entry.img) return <img src={entry.img} alt="" aria-hidden="true" loading="lazy" className="w-7 h-7 object-contain" />
   if (entry.Icon) {
     const Icon = entry.Icon
-    return <Icon aria-hidden="true" className="w-[22px] h-[22px] shrink-0" style={{ color: entry.color }} />
+    const col = isLight && entry.lightColor ? entry.lightColor : (!isLight && entry.darkColor ? entry.darkColor : entry.color)
+    // for light mode, white icons need dark bg — handle via color override
+    const styleColor = isLight && (entry.color === '#FFFFFF' || entry.darkColor === '#FFFFFF') ? (entry.lightColor || '#0f172a') : col
+    return <Icon aria-hidden="true" className="w-[22px] h-[22px] shrink-0" style={{ color: styleColor }} />
   }
-  return <span className="text-[11px] font-bold tracking-tight text-white dark:text-white text-slate-700">{name.slice(0, 2).toUpperCase()}</span>
+  return <span className={`text-[11px] font-bold tracking-tight ${isLight ? 'text-slate-700' : 'text-white'}`}>{name.slice(0, 2).toUpperCase()}</span>
 }
 
 const groupMeta = {
   Frontend: { desc: 'Design systems, UI architecture and performant interfaces.', hint: 'React • TypeScript • Tailwind' },
+  Backend: { desc: 'Node, PHP, Symfony, Python — REST APIs, auth and business logic.', hint: 'Node • Symfony • REST' },
+  Databases: { desc: 'Schema design, optimization and data modeling across SQL & NoSQL.', hint: 'Postgres • MySQL • Mongo' },
+  'Server & Deployment': { desc: 'Nginx, PM2, Docker, Cloudflare, CI/CD and store/server deploys.', hint: 'Docker • Nginx • Cloudflare' },
   'Game Development': { desc: 'Real-time rendering, animation and game UI at 60fps.', hint: 'PixiJS • GSAP • WebGL' },
-  'Backend & Data': { desc: 'APIs, data modeling and production infra.', hint: 'Node • PHP/Symfony • Postgres' },
-  'Tooling & Infra': { desc: 'Delivery, optimization and store pipelines.', hint: 'Vite • Git • SEO' },
 }
 
 function SkillCard({ item, accent, index, isLight }) {
@@ -79,7 +101,7 @@ function SkillCard({ item, accent, index, isLight }) {
     >
       <div className="flex items-start justify-between gap-2">
         <div className={`w-[42px] h-[42px] grid place-items-center rounded-xl border transition ${isLight ? 'bg-slate-50 border-slate-200 group-hover:bg-white' : 'bg-white/[0.06] border-white/10 group-hover:bg-white/[0.08] group-hover:border-white/15'}`}>
-          <TechIcon name={item.n} />
+          <TechIcon name={item.n} isLight={isLight} />
         </div>
         <span className={`text-[10px] font-mono tracking-widest uppercase px-2 py-1 rounded-full border transition ${isLight ? 'bg-slate-100 border-slate-200 text-slate-500' : 'bg-white/5 border-white/10 text-white/55 group-hover:text-white/75'}`}>{item.years}y</span>
       </div>
@@ -101,10 +123,11 @@ export default function Skills() {
   const [active, setActive] = useState(0)
   const [showAll, setShowAll] = useState(false)
   const group = skillGroups[active]
-  const meta = groupMeta[group.title] || {}
+  const meta = groupMeta[group.title] || { desc: '', hint: '' }
   const VISIBLE = 8
   const items = showAll ? group.items : group.items.slice(0, VISIBLE)
   const hasMore = group.items.length > VISIBLE
+  const totalTechs = skillGroups.reduce((a, g) => a + g.items.length, 0)
 
   return (
     <section id="skills" className={`relative border-t overflow-hidden backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-[#f8fafc]/70 border-slate-200' : 'bg-ink/80 border-white/5'}`}>
@@ -115,10 +138,10 @@ export default function Skills() {
 
       <div className="relative mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Skills • Technology Ecosystem</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Skills • Full-Stack + Game Ecosystem</p>
           <div className="mt-3 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-            <h2 className={`font-display text-[30px] sm:text-[40px] font-bold leading-none tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>A focused,<br className="hidden sm:block" /> production-proven stack.</h2>
-            <p className={`max-w-[520px] text-sm sm:text-[15px] leading-relaxed ${isLight ? 'text-slate-600' : 'text-white/60'}`}>Only tech from shipped work — no buzzword filler. Explore by domain. Each card now shows the official brand icon.</p>
+            <h2 className={`font-display text-[30px] sm:text-[40px] font-bold leading-none tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>A balanced<br className="hidden sm:block" /> full-stack & game stack.</h2>
+            <p className={`max-w-[520px] text-sm sm:text-[15px] leading-relaxed ${isLight ? 'text-slate-600' : 'text-white/60'}`}>Frontend → Backend → Databases → Server & Deployment → Game. Each card shows official icon and real shipped years.</p>
           </div>
         </Reveal>
 
@@ -129,16 +152,16 @@ export default function Skills() {
                 const isActive = i === active
                 return (
                   <button key={g.title} role="tab" aria-selected={isActive} onClick={() => { setActive(i); setShowAll(false) }}
-                    className={`relative whitespace-nowrap inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all ${isActive ? (isLight ? 'bg-slate-900 text-white shadow-sm' : 'text-ink bg-white shadow-sm') : (isLight ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' : 'text-white/65 hover:text-white hover:bg-white/10')}`}>
+                    className={`relative whitespace-nowrap inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all ${isActive ? (isLight ? 'bg-slate-900 text-white shadow-sm' : 'text-ink bg-white shadow-sm') : (isLight ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' : 'text-white/65 hover:text-white hover:bg-white/10')}`}>
                     <span className="w-2 h-2 rounded-full shrink-0" style={{ background: g.accent, boxShadow: isActive ? `0 0 10px ${g.accent}66` : `0 0 10px ${g.accent}40`, opacity: isActive ? 1 : 0.9 }} />
-                    {g.title}
+                    <span className="hidden sm:inline">{g.title}</span><span className="sm:hidden">{g.title.split(' ')[0]}</span>
                     <span className={`text-xs font-mono px-1.5 py-0.5 rounded-full ${isActive ? (isLight ? 'bg-white/15 text-white/70' : 'bg-ink/10 text-ink/60') : (isLight ? 'bg-slate-100 text-slate-500' : 'bg-white/10 text-white/45')}`}>{g.items.length}</span>
                   </button>
                 )
               })}
             </div>
             <div className={`hidden sm:flex items-center gap-2 ml-auto text-xs font-mono ${isLight ? 'text-slate-400' : 'text-white/40'}`}>
-              <span className={`w-px h-4 ${isLight ? 'bg-slate-200' : 'bg-white/10'}`} />27 technologies · official icons
+              <span className={`w-px h-4 ${isLight ? 'bg-slate-200' : 'bg-white/10'}`} />{totalTechs} technologies · official icons
             </div>
           </div>
         </Reveal>
@@ -158,7 +181,7 @@ export default function Skills() {
             </div>
             <div className="sm:ml-auto flex items-center gap-2 sm:gap-3 text-xs font-mono shrink-0">
               <span className={`px-3 py-1.5 rounded-full font-semibold ${isLight ? 'bg-slate-900 text-white' : 'bg-white text-ink'}`}>{group.items.length} techs</span>
-              <span className={`hidden sm:inline-flex px-3 py-1.5 rounded-full border ${isLight ? 'bg-slate-50 border-slate-200 text-slate-600' : 'bg-white/5 border-white/10 text-white/60'}`}>{group.title === 'Frontend' ? 'UI Architecture' : group.title === 'Game Development' ? '60fps · Canvas/WebGL' : group.title === 'Backend & Data' ? 'APIs · Infra' : 'Shipping'}</span>
+              <span className={`hidden sm:inline-flex px-3 py-1.5 rounded-full border ${isLight ? 'bg-slate-50 border-slate-200 text-slate-600' : 'bg-white/5 border-white/10 text-white/60'}`}>{group.title === 'Frontend' ? 'UI Architecture' : group.title === 'Backend' ? 'APIs & Services' : group.title === 'Databases' ? 'SQL & NoSQL' : group.title === 'Server & Deployment' ? 'Infra & CI/CD' : '60fps · Canvas/WebGL'}</span>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -187,8 +210,8 @@ export default function Skills() {
               </div>
             </div>
             <div className={`rounded-2xl p-4 sm:p-5 flex flex-col justify-center ${isLight ? 'bg-slate-900 text-white' : 'bg-white text-ink'}`}>
-              <div className="text-sm font-semibold leading-none">Daily toolchain</div>
-              <div className={`mt-1.5 text-sm leading-snug ${isLight ? 'text-white/70' : 'text-ink/70'}`}>Vite · Webpack · Axios · Git/GitHub · TinyPNG/WebP · SEO/OG · Store deploys</div>
+              <div className="text-sm font-semibold leading-none">Full-stack delivery</div>
+              <div className={`mt-1.5 text-sm leading-snug ${isLight ? 'text-white/70' : 'text-ink/70'}`}>Frontend → Backend → DB → Nginx/Docker/Cloudflare → Store/Server</div>
             </div>
           </div>
         </Reveal>

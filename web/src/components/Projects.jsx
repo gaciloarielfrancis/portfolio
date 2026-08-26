@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Reveal } from './Reveal'
 import { projects } from '../data'
@@ -67,11 +68,11 @@ function CaseModal({ project, onClose }) {
   const displayFeatures = features.slice(0, 4)
   const deliveryFocus = project.deliveryFocus || (project.category === 'Corporate Platform' ? 'SEO • responsive • headless Symfony API • MySQL • RBAC • performance' : project.category === 'Dev Tool' ? 'Vite • Canvas API • drag-drop • sprite export • WebP' : '60fps • atlas batching • object pooling • WebP • code-split • certified flow')
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[70] grid place-items-center p-3 sm:p-4 md:p-6" aria-modal="true" role="dialog">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto overscroll-contain" aria-modal="true" role="dialog">
       <button aria-label="Close case study" onClick={onClose} className="absolute inset-0 bg-[#05070d]/75 backdrop-blur-[6px]" />
-      <motion.div initial={{ y: 14, scale: 0.98, opacity: 0 }} animate={{ y: 0, scale: 1, opacity: 1 }} exit={{ y: 10, scale: 0.98, opacity: 0 }} transition={{ type: 'spring', damping: 26, stiffness: 300 }} className={`relative w-full max-w-[920px] max-h-[90dvh] sm:max-h-[84vh] overflow-hidden rounded-[20px] sm:rounded-[24px] border shadow-[0_20px_80px_rgba(0,0,0,0.6)] flex flex-col ${isLight ? 'bg-white border-slate-200' : 'bg-[#0f111a] border-white/10'}`}>
+      <motion.div initial={{ y: 14, scale: 0.98, opacity: 0 }} animate={{ y: 0, scale: 1, opacity: 1 }} exit={{ y: 10, scale: 0.98, opacity: 0 }} transition={{ type: 'spring', damping: 26, stiffness: 300 }} className={`relative w-full max-w-[920px] max-h-[min(88vh,760px)] sm:max-h-[82vh] my-auto overflow-hidden rounded-[20px] sm:rounded-[24px] border shadow-[0_20px_80px_rgba(0,0,0,0.6)] flex flex-col ${isLight ? 'bg-white border-slate-200' : 'bg-[#0f111a] border-white/10'}`}>
         <button onClick={onClose} aria-label="Close" className={`absolute right-3 top-3 z-20 w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-full transition shadow-lg text-lg leading-none ${isLight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'bg-white text-ink hover:bg-zinc-100'}`}>×</button>
-        <div className="relative h-[148px] sm:h-[200px] md:h-[220px] shrink-0 overflow-hidden bg-black">
+        <div className="relative h-[132px] sm:h-[160px] md:h-[180px] shrink-0 overflow-hidden bg-black">
           {project.image.endsWith('.svg') ? <div className={`w-full h-full grid place-items-center ${isLight ? 'bg-gradient-to-br from-slate-50 to-slate-100' : 'bg-gradient-to-br from-[#1a1433] to-[#0f1a2a]'}`}><img src={imgSrc} alt="" className="w-16 h-16 sm:w-20 sm:h-20 opacity-80" /></div> : <img src={imgSrc} alt={project.name} className="w-full h-full object-cover object-center" />}
           <div className={`absolute inset-0 ${isLight ? 'bg-gradient-to-t from-white via-white/60 to-transparent' : 'bg-gradient-to-t from-[#0f111a] via-[#0f111a]/55 to-transparent'}`} />
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent hidden sm:block" />
@@ -86,7 +87,7 @@ function CaseModal({ project, onClose }) {
             <p className={`mt-1 text-[11px] font-mono hidden sm:block ${isLight ? 'text-slate-500' : 'text-white/45'}`}>{project.role}</p>
           </div>
         </div>
-        <div className={`flex-1 min-h-0 overflow-y-auto sm:overflow-hidden overscroll-contain touch-pan-y sm:touch-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full p-3 sm:p-4 md:p-5 ${isLight ? 'bg-white' : 'bg-[#0f111a]'} ${isLight ? '[&::-webkit-scrollbar-thumb]:bg-slate-200' : '[&::-webkit-scrollbar-thumb]:bg-white/10'}`}>
+        <div className={`flex-1 min-h-0 overflow-y-auto overscroll-contain touch-pan-y [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full p-2.5 sm:p-4 md:p-4 ${isLight ? 'bg-white' : 'bg-[#0f111a]'} ${isLight ? '[&::-webkit-scrollbar-thumb]:bg-slate-200' : '[&::-webkit-scrollbar-thumb]:bg-white/10'}`}>
           <div className="flex flex-col gap-3 sm:gap-3.5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 shrink-0">
               <div className={`relative rounded-2xl border p-3.5 sm:p-4 overflow-hidden ${isLight ? 'bg-gradient-to-br from-amber-50 to-white border-amber-200' : 'bg-gradient-to-br from-amber-500/[0.08] via-white/[0.03] to-transparent border-white/10'}`}>
@@ -150,7 +151,8 @@ export default function Projects() {
   const cats = ['All', 'Featured', 'Casino Game', 'Lottery', 'Corporate Platform', 'Dev Tool']
   const list = projects.filter(p => { if (filter === 'All') return true; if (filter === 'Featured') return p.featured; if (filter === 'Casino Game') return p.category.includes('Casino') || p.category === 'Real-time Game'; return p.category === filter })
   return (
-    <section id="projects" className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'bg-[#0b0c14]/80 border-white/5'}`}>
+    <>
+      <section id="projects" className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'bg-[#0b0c14]/80 border-white/5'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Featured Projects — 13 shipped</p>
@@ -166,7 +168,11 @@ export default function Projects() {
           {list.map(p => <TiltCard key={p.slug} p={p} onOpen={setSelected} isLight={isLight} />)}
         </div>
       </div>
-      <AnimatePresence>{selected && <CaseModal project={selected} onClose={() => setSelected(null)} />}</AnimatePresence>
     </section>
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>{selected && <CaseModal project={selected} onClose={() => setSelected(null)} />}</AnimatePresence>,
+        document.body
+      )}
+    </>
   )
 }
