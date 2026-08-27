@@ -332,4 +332,18 @@ export const projects = [
     link: "https://gaciloarielfrancis.github.io/GIF-To-Spritesheet",
     featured: true,
   },
+  {
+    slug: "playpoints",
+    name: "PlayPoints",
+    category: "Gaming / Rewards / Entertainment",
+    image: "playpoints.webp",
+    role: "Solo — open source",
+    description: "PlayPoints is an interactive rewards platform where users can play quick and entertaining mini-games to earn points.",
+    challenge: "Many online games require significant time commitments, complicated gameplay, or provide entertainment without rewarding player engagement.",
+    solution: "PlayPoints provides a collection of fast and easy-to-play mini-games designed for quick entertainment.",
+    features: ["Quick Mini-Games", "Earn Points", "Multiple Game Options", "Simple Gameplay", "Points Tracking", "Reward System", "Fast User Experience", "Engaging Platform"],
+    tech: ["HTML5", "TypeScript", "Vue 3", "Tailwind", "Vite", "Node", "Express", "Prisma", "PostgreSQL"],
+    link: "https://playpoints.net",
+    featured: true,
+  },
 ];

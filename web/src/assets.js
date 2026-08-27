@@ -12,6 +12,7 @@ import leiprime from './assets/projects/leiprime.png'
 import imageTools from './assets/projects/image-tools.svg'
 import profile from './assets/projects/profile.png'
 import heroFullBody from './assets/hero-fullbody.png'
+import playpoints from './assets/projects/playpoints.webp'
 
 export const projectImages = {
   'dragon-tiger.jpg': dragonTiger,
@@ -26,5 +27,6 @@ export const projectImages = {
   'mdc.png': mdc,
   'leiprime.png': leiprime,
   'image-tools.svg': imageTools,
+  'playpoints.webp': playpoints,
 }
-export { profile, heroFullBody }
+export { profile, heroFullBody, playpoints }
