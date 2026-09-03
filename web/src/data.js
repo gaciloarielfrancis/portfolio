@@ -15,7 +15,7 @@ export const profile = {
 
 export const stats = [
   { label: "Years shipping", value: "10+", sub: "2014 — present" },
-  { label: "Full-stack platforms", value: "13", sub: "Games + portals + tools" },
+  { label: "Full-stack platforms", value: "15", sub: "Games + portals + tools" },
   { label: "APIs & Databases", value: "8+", sub: "Node/PHP · Postgres/MySQL/Mongo" },
   { label: "Tech stack", value: "44", sub: "Frontend → Deployment" },
 ];
@@ -345,5 +345,20 @@ export const projects = [
     tech: ["HTML5", "TypeScript", "Vue 3", "Tailwind", "Vite", "Node", "Express", "Prisma", "PostgreSQL"],
     link: "https://playpoints.net",
     featured: true,
+  },
+  {
+    slug: "artivora",
+    name: "Artivora",
+    category: "Dev Tool",
+    image: "artivora.webp",
+    role: "Solo — open source",
+    description: "Artivora Studio is a free, no-login AI image generator — turn words into stunning visuals in seconds with Flux, SDXL, SD 3.5 and PixelForge via Pixazo.",
+    challenge: "AI image tools often require logins, subscriptions, or complex workflows just to generate a quick visual for game assets and content.",
+    solution: "Built a single-page Vue + TypeScript studio on the Pixazo Gateway free tier — prompt, 9 style presets, 4 free models, 5 aspect ratios and batch generation, all in the browser.",
+    features: ["Prompt + 9 style presets", "4 free AI models (Flux/SDXL/SD 3.5/PixelForge)", "Batch generation (1/2/4) + CFG/steps/seed", "Download/Copy/Upscale + lightbox"],
+    tech: ["HTML5", "TypeScript", "Vue.js", "Tailwind", "Vite", "Pixazo API"],
+    link: "https://artivora.pages.dev",
+    featured: true,
+    deliveryFocus: "Vue 3 + TS • Tailwind v4 • Pixazo Gateway • Vite • Cloudflare Pages",
   },
 ];

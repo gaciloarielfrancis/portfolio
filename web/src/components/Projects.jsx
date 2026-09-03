@@ -155,7 +155,7 @@ export default function Projects() {
       <section id="projects" className={`relative border-t backdrop-blur-sm transition-colors duration-300 ${isLight ? 'bg-white/70 border-slate-200' : 'bg-[#0b0c14]/80 border-white/5'}`}>
       <div className="mx-auto max-w-[1200px] px-6 sm:px-8 py-16 sm:py-20">
         <Reveal>
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Featured Projects — 13 shipped</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent2">Featured Projects — {projects.length} shipped</p>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <h2 className={`mt-3 font-display text-[30px] sm:text-[40px] font-bold leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>Work that demonstrates<br className="hidden sm:block" /> engineering thinking.</h2>
             <p className={`max-w-[420px] ${isLight ? 'text-slate-600' : 'text-white/65'}`}>Hover for depth • click for case study. Staging links require vendor auth; screenshots preserved locally.</p>

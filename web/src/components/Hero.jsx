@@ -143,7 +143,7 @@ export default function Hero() {
             <img src={profileImg} alt="Ariel Francis Gacilo" loading="lazy" className={`w-10 h-10 rounded-full object-cover border bg-white/10 ${isLight ? 'border-slate-200' : 'border-white/15 grayscale'}`} />
             <div>
               <div className={`text-sm font-semibold ${isLight ? 'text-slate-900' : 'text-white'}`}>10s recruiter scan</div>
-              <div className={`text-xs ${isLight ? 'text-slate-500' : 'text-white/60'}`}>Senior Full-Stack & Game Dev • React/Node/PHP • Postgres/MySQL • PixiJS/WebGL • 13 platforms</div>
+              <div className={`text-xs ${isLight ? 'text-slate-500' : 'text-white/60'}`}>Senior Full-Stack & Game Dev • React/Node/PHP • Postgres/MySQL • PixiJS/WebGL • 15 platforms</div>
             </div>
           </div>
           <div className="flex gap-2">

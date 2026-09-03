@@ -4,7 +4,7 @@ import { useTheme } from '../hooks/useTheme.jsx'
 const lines = [
   { cmd: 'whoami', out: 'Senior Frontend & Game Developer — Ariel Francis Gacilo' },
   { cmd: 'skills --top', out: 'React • TypeScript • JavaScript • PixiJS • WebGL • GSAP • Node • PHP/Symfony • PostgreSQL' },
-  { cmd: 'projects --featured', out: 'Dragon Tiger • Punto Banco • Crypto Crash • GIF to Spritesheet — 13 shipped, 9 games' },
+  { cmd: 'projects --featured', out: 'Dragon Tiger • Punto Banco • Crypto Crash • Artivora — 15 shipped, 9 games' },
   { cmd: 'experience', out: 'Blueline Active Asia (2021-2024) • SGITR (2016-2021) • Immersive Media (2014-2016)' },
   { cmd: 'contact', out: 'gaciloarielfrancis@gmail.com — LinkedIn / GitHub — Bongabong, PH • Remote' },
 ]

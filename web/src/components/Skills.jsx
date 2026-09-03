@@ -66,8 +66,10 @@ const iconMap = {
   'WebGL / Canvas': { Icon: SiWebgl, color: '#990000' },
 }
 
-// need to handle duplicate key for MySQL
+// aliases for variant tech names used in project data
 iconMap['MySQL/MySQLi'] = iconMap['MySQL / MySQLi']
+iconMap['Vue 3'] = iconMap['Vue.js']
+iconMap['Node'] = iconMap['Node.js']
 
 function TechIcon({ name, isLight }) {
   const entry = iconMap[name] || {}

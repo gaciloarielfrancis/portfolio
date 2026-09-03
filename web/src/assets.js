@@ -13,6 +13,7 @@ import imageTools from './assets/projects/image-tools.svg'
 import profile from './assets/projects/profile.png'
 import heroFullBody from './assets/hero-fullbody.png'
 import playpoints from './assets/projects/playpoints.webp'
+import artivora from './assets/projects/artivora.webp'
 
 export const projectImages = {
   'dragon-tiger.jpg': dragonTiger,
@@ -28,5 +29,6 @@ export const projectImages = {
   'leiprime.png': leiprime,
   'image-tools.svg': imageTools,
   'playpoints.webp': playpoints,
+  'artivora.webp': artivora,
 }
-export { profile, heroFullBody, playpoints }
+export { profile, heroFullBody, playpoints, artivora }
