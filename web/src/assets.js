@@ -14,6 +14,8 @@ import profile from './assets/projects/profile.png'
 import heroFullBody from './assets/hero-fullbody.png'
 import playpoints from './assets/projects/playpoints.webp'
 import artivora from './assets/projects/artivora.webp'
+import gifToSpritesheet from './assets/projects/gif-to-spritesheet.webp'
+import cssSpritesheet from './assets/projects/css-spritesheet.webp'
 
 export const projectImages = {
   'dragon-tiger.jpg': dragonTiger,
@@ -30,5 +32,7 @@ export const projectImages = {
   'image-tools.svg': imageTools,
   'playpoints.webp': playpoints,
   'artivora.webp': artivora,
+  'gif-to-spritesheet.webp': gifToSpritesheet,
+  'css-spritesheet.webp': cssSpritesheet,
 }
 export { profile, heroFullBody, playpoints, artivora }

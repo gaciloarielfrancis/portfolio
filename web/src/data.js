@@ -14,7 +14,7 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Years shipping", value: "10+", sub: "2014 — present" },
+  { label: "Years shipping", value: "12+", sub: "2014 — present" },
   { label: "Full-stack platforms", value: "15", sub: "Games + portals + tools" },
   { label: "APIs & Databases", value: "8+", sub: "Node/PHP · Postgres/MySQL/Mongo" },
   { label: "Tech stack", value: "44", sub: "Frontend → Deployment" },
@@ -122,16 +122,29 @@ export const aboutCards = [
 
 export const experience = [
   {
+    company: "IT Americano Inc.",
+    role: "Senior Game Frontend Developer",
+    period: "Nov 2024 — Now",
+    current: false,
+    highlights: [
+      "Provide mentorship and technical guidance to team members to ensure successful project completion.",
+      "Develop games from the ground up, with a strong focus on performance, scalability, and optimization.",
+      "Design and develop reusable core frontend systems in TypeScript as modular submodules.",
+      "Collaborate closely with Product, Backend, and QA teams to ensure high-quality, reliable, and well-integrated deliverables.",
+    ],
+    stack: ["Vue", "Laya Air 3", "TypeScript", "GSAP", "Pinia", "Live Streaming (FLV/WebRTC)", "Node.js", "Websocket"],
+  },
+  {
     company: "Blueline Active Asia",
-    role: "Game Developer — Full-Stack Game Systems",
+    role: "Senior Game Developer",
     period: "Oct 2021 — Apr 2024",
     current: false,
     highlights: [
-      "Built 8+ production casino games (PixiJS, TypeScript, GSAP, React) for W88 — real-time multiplayer with Node/PHP APIs, MySQL/PostgreSQL and certified RNG.",
-      "Owned frontend rendering & API integration; hit 60fps on mobile by atlas packing, tint batching, RAF scheduling and Nginx/PM2 + Cloudflare edge caching.",
-      "Collaborated across art, animation and QA — shipped via Dockerized builds and optimized load with code-split + WebP/WebM.",
+      "Built 8+ production casino games (PixiJS, TypeScript, GSAP, React) for W88 — real-time multiplayer with Node APIs and certified RNG.",
+      "Owned frontend rendering; hit 60fps on mobile by atlas packing, tint batching and caching.",
+      "Collaborated across art, animation and QA — optimized load with code-split + WebP/WebM.",
     ],
-    stack: ["PixiJS", "TypeScript", "React", "GSAP", "Node.js", "MySQL", "Nginx", "Docker"],
+    stack: ["PixiJS", "TypeScript", "React", "Redux", "GSAP", "Spine Animation", "Node.js", "Websocket", "Webpack"],
   },
   {
     company: "Smartest Guys in the Room",
@@ -307,7 +320,7 @@ export const projects = [
     slug: "css-spritesheet",
     name: "CSS Spritesheet",
     category: "Dev Tool",
-    image: "image-tools.svg",
+    image: "css-spritesheet.webp",
     role: "Solo — open source",
     description: "Browser tool to pack images into CSS spritesheets — drag, pack, export with live preview.",
     challenge: "Manually packing images into CSS sprites requires precise coordinate math and is error-prone for CSS authoring.",
@@ -322,15 +335,16 @@ export const projects = [
     slug: "gif-to-spritesheet",
     name: "GIF to Spritesheet",
     category: "Dev Tool",
-    image: "image-tools.svg",
+    image: "gif-to-spritesheet.webp",
     role: "Solo — open source",
-    description: "Convert GIF frames into sprite sheets for game pipelines — Vite + React + Tailwind.",
+    description: "Convert animated GIFs into game-ready spritesheets plus TexturePacker-style JSON — free, private, 100% in-browser, no uploads.",
     challenge: "Game pipelines need GIF frames as sprite atlases; manual conversion breaks timing and wastes artist time.",
-    solution: "Built a Vite + React + Tailwind tool that decodes GIF frames, packs via Canvas, previews playback and exports atlas + JSON.",
-    features: ["GIF frame decoding & timing", "Canvas atlas packing", "Vite + React + Tailwind shell", "Atlas JSON & WebP export"],
-    tech: ["HTML5", "TypeScript", "React", "Tailwind", "Vite"],
+    solution: "Rebuilt from React 19 to Vue 3 + TypeScript — batch GIF decoding, Canvas packing, live checkerboard preview and one-click ZIP export via JSZip.",
+    features: ["Batch GIF convert + PNG/JPEG/WEBP", "TexturePacker-style JSON (PixiJS/Phaser/Unity)", "Live preview + ZIP export via JSZip", "Dark responsive UI + progress overlay"],
+    tech: ["HTML5", "TypeScript", "Vue.js", "Tailwind", "Vite", "JSZip"],
     link: "https://gaciloarielfrancis.github.io/GIF-To-Spritesheet",
     featured: true,
+    deliveryFocus: "Vue 3 + TS • Tailwind v4 • Canvas • JSZip • Vite",
   },
   {
     slug: "playpoints",
