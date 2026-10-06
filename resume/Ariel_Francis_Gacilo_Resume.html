@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ariel Francis Gacilo — Senior Full-Stack & Game Developer | Resume</title>
+<meta name="description" content="Resume of Ariel Francis Gacilo, Senior Full-Stack & Game Developer. React, Vue, Node, PHP/Symfony, PostgreSQL/MySQL, PixiJS/WebGL." />
+<style>
+  :root {
+    --ink: #0f172a;
+    --muted: #475569;
+    --light: #64748b;
+    --accent: #4f46e5;
+    --accent2: #06b6d4;
+    --accent-grad: linear-gradient(135deg, #4f46e5 0%, #7c5cff 45%, #06b6d4 100%);
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --rule: #e2e8f0;
+    --chip: #f1f5f9;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    margin: 0;
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 13.5px;
+  }
+  a { color: #fff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .toolbar {
+    max-width: 1020px; margin: 16px auto 0; padding: 0 20px;
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .toolbar button {
+    font-size: 13px; padding: 9px 18px; border-radius: 999px;
+    border: 1px solid #cbd5e1; background: var(--ink); color: #fff;
+    cursor: pointer; font-weight: 600;
+  }
+  .toolbar button.secondary { background: #fff; color: var(--ink); }
+  .toolbar span { font-size: 12px; color: var(--light); align-self: center; }
+
+  .resume {
+    max-width: 1020px;
+    margin: 16px auto 40px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(15,23,42,0.12);
+    border: 1px solid var(--rule);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: #0b0c1d;
+    background-image:
+      radial-gradient(700px 380px at 15% 0%, rgba(124,92,255,0.45), transparent 60%),
+      radial-gradient(600px 360px at 90% 20%, rgba(34,211,238,0.35), transparent 60%),
+      linear-gradient(180deg, #141236 0%, #0b0c1d 100%);
+    color: #fff;
+    padding: 36px 36px 28px;
+    position: relative;
+  }
+  .hero-inner { display: flex; gap: 24px; align-items: flex-start; }
+  .avatar-wrap { flex-shrink: 0; }
+  .avatar {
+    width: 132px; height: 132px; border-radius: 50%;
+    object-fit: cover; object-position: top;
+    border: 4px solid #fff;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    background: #fff;
+    display: block;
+  }
+  .hero-text { min-width: 0; flex: 1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #c4b5fd;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px #34d399; }
+  h1 { font-size: 38px; margin: 12px 0 0; letter-spacing: -0.03em; line-height: 0.95; }
+  h1 .grad { color: #fff; }
+  .role { margin-top: 6px; font-size: 16px; font-weight: 600; color: #e0e7ff; }
+  .tagline { margin-top: 8px; font-size: 13.5px; color: rgba(255,255,255,0.72); max-width: 640px; }
+  .contact-row { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .contact-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: #fff;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    padding: 6px 12px; border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .contact-pill a { color: #fff; }
+  .stats-row {
+    margin-top: 18px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px; padding: 12px 14px;
+  }
+  .stat b { display: block; font-size: 22px; line-height: 1; }
+  .stat span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #e0e7ff; }
+  .stat small { display: block; font-size: 11.5px; color: rgba(255,255,255,0.6); }
+
+  /* ===== LAYOUT ===== */
+  .layout { display: grid; grid-template-columns: 300px 1fr; gap: 0; }
+  aside.sidebar {
+    background: #f8fafc;
+    border-right: 1px solid var(--rule);
+    padding: 24px 22px;
+  }
+  main.content { padding: 26px 30px 30px; }
+
+  .side-block { margin-bottom: 22px; }
+  .side-block:last-child { margin-bottom: 0; }
+  h2 {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.12em;
+    margin: 0 0 12px; display: flex; align-items: center; gap: 8px;
+    color: var(--ink);
+  }
+  h2::before {
+    content: ""; width: 22px; height: 4px; border-radius: 999px;
+    background: var(--accent-grad); display: inline-block;
+  }
+  main h2 { font-size: 12.5px; margin: 26px 0 14px; }
+  main h2:first-child { margin-top: 0; }
+
+  .contact-card {
+    background: #fff; border: 1px solid var(--rule);
+    border-radius: 14px; padding: 14px;
+    font-size: 12.5px;
+  }
+  .contact-card div { display: flex; gap: 8px; margin: 7px 0; align-items: flex-start; }
+  .contact-card .ico {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--ink); color: #fff;
+    display: grid; place-items: center; font-size: 13px; flex-shrink: 0;
+  }
+  .contact-card small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); font-weight: 700; }
+  .contact-card a { color: var(--ink); font-weight: 600; }
+
+  .skill { margin: 9px 0; }
+  .skill-top { display: flex; justify-content: space-between; font-size: 12.5px; }
+  .skill-top b { font-weight: 600; }
+  .skill-top span { color: var(--light); font-size: 11.5px; }
+  .bar { height: 6px; background: #e2e8f0; border-radius: 999px; margin-top: 4px; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 999px; }
+  .skill-group-title { font-size: 12px; font-weight: 800; margin: 14px 0 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .chip {
+    font-size: 11px; font-family: ui-monospace, monospace;
+    background: #fff; border: 1px solid var(--rule);
+    padding: 3px 8px; border-radius: 999px; color: var(--muted);
+  }
+  .about-mini {
+    background: #fff; border: 1px solid var(--rule); border-radius: 12px;
+    padding: 10px 12px; margin: 8px 0; font-size: 12.5px;
+  }
+  .about-mini b { display: block; font-size: 12.5px; }
+  .about-mini p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+
+  .summary { font-size: 13.5px; color: #1e293b; background: linear-gradient(135deg, #eef2ff, #ecfeff); border: 1px solid #e0e7ff; border-radius: 14px; padding: 14px 16px; }
+  .summary strong { color: var(--ink); }
+
+  /* Experience timeline */
+  .job { position: relative; padding-left: 22px; margin: 0 0 18px; border-left: 2px solid #e2e8f0; }
+  .job::before {
+    content: ""; position: absolute; left: -7px; top: 4px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 3px #e0e7ff;
+  }
+  .job-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .job-head h3 { margin: 0; font-size: 14.5px; }
+  .job-head h3 span { color: var(--accent); }
+  .period {
+    font-size: 11.5px; font-family: ui-monospace, monospace;
+    background: var(--ink); color: #fff; padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .company { font-size: 12.5px; color: var(--muted); font-weight: 600; margin: 2px 0 6px; }
+  .job ul { margin: 6px 0 6px 18px; color: #334155; font-size: 13px; }
+  .stack { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .stack strong { color: var(--ink); }
+
+  /* Projects grid with images */
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .proj {
+    border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+    background: #fff; break-inside: avoid;
+  }
+  .proj img { width: 100%; height: 130px; object-fit: cover; object-position: top; display: block; background: #0f172a; }
+  .proj-body { padding: 12px 13px 13px; }
+  .proj-cat {
+    font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #fff; background: var(--accent-grad);
+    display: inline-block; padding: 3px 9px; border-radius: 999px; margin-bottom: 6px;
+  }
+  .proj-body h3 { margin: 0; font-size: 13.5px; line-height: 1.3; }
+  .proj-body h3 small { font-weight: 500; color: var(--light); }
+  .proj-body p { font-size: 12.5px; color: var(--muted); margin: 6px 0; }
+  .proj-tech { font-size: 11px; color: var(--light); font-family: ui-monospace, monospace; }
+  .proj-link { font-size: 11.5px; word-break: break-all; }
+
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .comp {
+    font-size: 12.5px; background: #f8fafc; border: 1px solid var(--rule);
+    border-radius: 10px; padding: 9px 11px; display: flex; gap: 8px;
+  }
+  .comp i { color: var(--accent); font-style: normal; font-weight: 800; }
+
+  .banner {
+    margin-top: 20px; border-radius: 14px; overflow: hidden;
+    display: grid; grid-template-columns: 110px 1fr; gap: 0;
+    background: #0f172a; color: #fff; border: 1px solid #1e293b;
+  }
+  .banner img { width: 110px; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .banner div { padding: 14px 16px; }
+  .banner b { font-size: 13px; }
+  .banner p { font-size: 12.5px; color: rgba(255,255,255,0.70); margin: 4px 0 0; }
+
+  .footer { margin-top: 20px; font-size: 11px; color: var(--light); border-top: 1px solid var(--rule); padding-top: 10px; }
+
+  @media (max-width: 860px) {
+    .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+    .contact-row, .stats-row { justify-content: center; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .layout { grid-template-columns: 1fr; }
+    aside.sidebar { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .proj-grid, .comp-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+    .hero { padding: 28px 20px; }
+    main.content { padding: 20px; }
+    .banner { grid-template-columns: 1fr; }
+    .banner img { width: 100%; height: 180px; }
+  }
+
+  @media print {
+    body { background: #fff; font-size: 11.5px; }
+    .toolbar { display: none; }
+    .resume { box-shadow: none; border: 0; border-radius: 0; margin: 0; max-width: none; }
+    .hero { padding: 22px; border-radius: 0; }
+    .layout { grid-template-columns: 260px 1fr; }
+    .proj-grid { grid-template-columns: 1fr 1fr; }
+    .proj { break-inside: avoid; }
+    .footer { display: none; }
+    .job, .side-block { break-inside: avoid; }
+    a { color: #fff !important; text-decoration: none !important; }
+    .contact-card a { color: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+  <button class="secondary" onclick="window.location.href='./Ariel_Francis_Gacilo_Resume.md'">View Markdown</button>
+  <span>Tip: enable “Background graphics” when printing to keep colors & images.</span>
+</div>
+
+<div class="resume">
+  <!-- HERO WITH PHOTO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="avatar-wrap">
+        <img class="avatar" src="./assets/profile.png" alt="Ariel Francis Gacilo — profile photo" />
+      </div>
+      <div class="hero-text">
+        <div class="eyebrow"><span class="dot"></span> Available for senior &amp; lead roles • Remote • APAC / EU overlap</div>
+        <h1>Ariel Francis <span class="grad">Gacilo</span></h1>
+        <div class="role">Senior Full-Stack &amp; Game Developer</div>
+        <div class="tagline">Building high-performance web platforms, games and APIs — from frontend to databases, servers and deployment. React / Vue / Node / PHP-Symfony / Postgres / PixiJS-WebGL at 60fps.</div>
+        <div class="contact-row">
+          <span class="contact-pill">✉️ <a href="mailto:gaciloarielfrancis@gmail.com">gaciloarielfrancis@gmail.com</a></span>
+          <span class="contact-pill">📞 +63 998 036 4770</span>
+          <span class="contact-pill">📍 Roxas, Oriental Mindoro, PH 5212</span>
+          <span class="contact-pill">💼 <a href="https://www.linkedin.com/in/ariel-francis-gacilo-01a694b0/">linkedin.com/in/ariel-francis-gacilo</a></span>
+          <span class="contact-pill">💻 <a href="https://github.com/gaciloarielfrancis">github.com/gaciloarielfrancis</a></span>
+        </div>
+        <div class="stats-row">
+          <div class="stat"><b>12+</b><span>Years shipping</span><small>2014 — present</small></div>
+          <div class="stat"><b>15</b><span>Full-stack platforms</span><small>Games + portals + tools</small></div>
+          <div class="stat"><b>8+</b><span>APIs &amp; Databases</span><small>Node / PHP · Postgres / MySQL</small></div>
+          <div class="stat"><b>44</b><span>Tech stack</span><small>Frontend → Deployment</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="side-block">
+        <h2>Contact</h2>
+        <div class="contact-card">
+          <div><span class="ico">✉</span><span><small>Email</small>gaciloarielfrancis@gmail.com</span></div>
+          <div><span class="ico">☎</span><span><small>Phone</small>+63 998 036 4770</span></div>
+          <div><span class="ico">◉</span><span><small>Location</small>Roxas, Oriental Mindoro, Philippines 5212</span></div>
+          <div><span class="ico">in</span><span><small>LinkedIn</small><a href="https://www.linkedin.com/in/ariel-francis-gacilo-01a694b0/">ariel-francis-gacilo</a></span></div>
+          <div><span class="ico">GH</span><span><small>GitHub</small><a href="https://github.com/gaciloarielfrancis">gaciloarielfrancis</a></span></div>
+          <div><span class="ico">✦</span><span><small>Skype</small>gaciloarielfrancis</span></div>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <h2>Education</h2>
+        <div class="about-mini"><b>Innovative College of Science &amp; Technology</b><p>Bachelor of Science in Information Technology<br />Bongabong, Oriental Mindoro</p></div>
+        <div class="about-mini"><b>Marcelo I. Cabrera Vocational High School</b><p>Highschool<br />Roxas, Oriental Mindoro</p></div>
+        <div class="about-mini"><b>Roxas Central School</b><p>Elementary<br />Roxas, Oriental Mindoro</p></div>
+      </div>
+
+      <div class="side-block">
+        <h2>Skills</h2>
+
+        <div class="skill-group-title" style="color:#7c5cff">◈ Frontend</div>
+        <div class="skill"><div class="skill-top"><b>React / TypeScript</b><span>10/10 · 3–5 yrs</span></div><div class="bar"><i style="width:100%;background:#7c5cff"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>JavaScript / HTML5 / CSS3</b><span>10/10 · 9 yrs</span></div><div class="bar"><i style="width:100%;background:#7c5cff"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>Vue.js / Redux</b><span>10/10 · 3–4 yrs</span></div><div class="bar"><i style="width:100%;background:#7c5cff"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>Tailwind / Vite / Webpack</b><span>10/10</span></div><div class="bar"><i style="width:100%;background:#7c5cff"></i></div></div>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">MUI</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span><span class="chip">Ionic</span></div>
+
+        <div class="skill-group-title" style="color:#db2777">⬢ Backend</div>
+        <div class="skill"><div class="skill-top"><b>PHP / Symfony / REST</b><span>10/10 · 7 yrs</span></div><div class="bar"><i style="width:100%;background:#f472b6"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>Node.js / Express</b><span>10/10 · 7 yrs</span></div><div class="bar"><i style="width:100%;background:#f472b6"></i></div></div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Axios</span><span class="chip">Firebase</span></div>
+
+        <div class="skill-group-title" style="color:#0891b2">⬣ Databases</div>
+        <div class="skill"><div class="skill-top"><b>PostgreSQL / MySQL</b><span>10/10 · 3–7 yrs</span></div><div class="bar"><i style="width:100%;background:#22d3ee"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>Prisma</b><span>10/10</span></div><div class="bar"><i style="width:100%;background:#22d3ee"></i></div></div>
+        <div class="chips"><span class="chip">Database Design</span></div>
+
+        <div class="skill-group-title" style="color:#65a30d">⬣ Server &amp; Deploy</div>
+        <div class="skill"><div class="skill-top"><b>Nginx / PM2 / Linux</b><span>9/10 · 6–7 yrs</span></div><div class="bar"><i style="width:90%;background:#a3e635"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>Docker / Cloudflare / CI</b><span>8/10 · 3–4 yrs</span></div><div class="bar"><i style="width:80%;background:#a3e635"></i></div></div>
+        <div class="chips"><span class="chip">Git &amp; GitHub</span><span class="chip">Actions</span><span class="chip">SEO/OG</span><span class="chip">Perf. Opt.</span></div>
+
+        <div class="skill-group-title" style="color:#d97706">◆ Game Dev</div>
+        <div class="skill"><div class="skill-top"><b>PixiJS / GSAP</b><span>10/10 · 3–9 yrs</span></div><div class="bar"><i style="width:100%;background:#f59e0b"></i></div></div>
+        <div class="skill"><div class="skill-top"><b>WebGL / Canvas</b><span>9/10 · 4 yrs</span></div><div class="bar"><i style="width:90%;background:#f59e0b"></i></div></div>
+        <div class="chips"><span class="chip">Phaser</span><span class="chip">Babylon.js</span><span class="chip">Spine</span><span class="chip">React Spring</span></div>
+      </div>
+
+      <div class="side-block">
+        <h2>Expertise</h2>
+        <div class="about-mini"><b>◈ Frontend Engineering</b><p>React, Vue, TS, Tailwind — design systems, state, performance budgets.</p></div>
+        <div class="about-mini"><b>⬢ Backend &amp; APIs</b><p>Node, PHP/Symfony, Python — REST, auth, reusable modules.</p></div>
+        <div class="about-mini"><b>⬣ DB, Servers &amp; Deploy</b><p>Postgres/MySQL, Nginx/PM2/Docker, Cloudflare, CI/CD.</p></div>
+        <div class="about-mini"><b>◆ Game Development</b><p>PixiJS/WebGL, GSAP/Spine — 60fps on low-end, certified flows.</p></div>
+      </div>
+
+      <div class="side-block">
+        <h2>Availability</h2>
+        <div class="about-mini"><b>Senior / Lead roles</b><p>Frontend &amp; game roles, freelance platforms, product collabs. Fast response on email &amp; LinkedIn. UTC+8 remote.</p></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="content">
+      <h2>Professional Summary</h2>
+      <div class="summary">
+        <strong>10+ years shipping full-stack platforms and real-time games.</strong> I own the stack end-to-end: React/Vue frontends, Node/PHP/Symfony APIs, PostgreSQL/MySQL, server management (Nginx, PM2, Docker, Cloudflare) and store/server deployment — plus PixiJS/WebGL game rendering at 60fps.
+      </div>
+
+      <h2>Experience • Timeline</h2>
+
+      <div class="job">
+        <div class="job-head"><h3>Senior Game Frontend Developer <span>— IT Americano Inc.</span></h3><span class="period">Nov 2024 — Present</span></div>
+        <div class="company">Mentorship • Core systems • Cross-team delivery</div>
+        <ul>
+          <li>Provide mentorship and technical guidance to team members to ensure successful project completion.</li>
+          <li>Develop games from the ground up, with a strong focus on performance, scalability, and optimization.</li>
+          <li>Design and develop reusable core frontend systems in TypeScript as modular submodules.</li>
+          <li>Collaborate closely with Product, Backend, and QA teams for high-quality, reliable deliverables.</li>
+        </ul>
+        <div class="stack"><strong>Stack:</strong> Vue, Laya Air 3, TypeScript, GSAP, Pinia, Live Streaming (FLV/WebRTC), Node.js, Websocket</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Senior Game Developer <span>— Blueline Active Asia</span></h3><span class="period">Oct 2021 — Apr 2024</span></div>
+        <div class="company">8+ W88 casino games • 60fps mobile • Certified RNG</div>
+        <ul>
+          <li>Built 8+ production casino games (PixiJS, TypeScript, GSAP, React) for W88 — real-time multiplayer with Node APIs and certified RNG.</li>
+          <li>Owned frontend rendering; hit 60fps on mobile by atlas packing, tint batching and caching.</li>
+          <li>Collaborated across art, animation and QA — optimized load with code-split + WebP/WebM.</li>
+        </ul>
+        <div class="stack"><strong>Stack:</strong> PixiJS, TypeScript, React, Redux, GSAP, Spine Animation, Node.js, Websocket, Webpack</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Full-stack / Game Developer <span>— Smartest Guys in the Room</span></h3><span class="period">Jan 2016 — Oct 2021</span></div>
+        <div class="company">Portals • APIs • DB design • Servers • Store deploys</div>
+        <ul>
+          <li>Full-stack delivery for client portals — React/Vue frontends, PHP/Symfony + Node/Express APIs, PostgreSQL/MySQL.</li>
+          <li>Managed Linux servers (Nginx, PM2, Docker), Cloudflare and GitHub Actions CI; DB design &amp; SEO/OG.</li>
+          <li>Led performance: minification, sprite sheets, TinyPNG/WebP, Lighthouse, deploys to VPS + Play/App Store.</li>
+        </ul>
+        <div class="stack"><strong>Stack:</strong> React, Vue, PHP, Symfony, Node.js, Express, PostgreSQL, MySQL, Nginx, Docker</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Senior Software Engineer <span>— Immersive Media Inc.</span></h3><span class="period">Jan 2014 — Jan 2016</span></div>
+        <div class="company">Web products • Standards • API &amp; deploy practices</div>
+        <ul>
+          <li>Senior engineering on immersive web products — established frontend standards, API patterns and deployment practices.</li>
+        </ul>
+        <div class="stack"><strong>Stack:</strong> JavaScript, HTML5, CSS3, jQuery, PHP, MySQL</div>
+      </div>
+
+      <h2>Selected Projects — with visuals</h2>
+      <div class="proj-grid">
+        <div class="proj">
+          <img src="./assets/dragon-tiger.jpg" alt="Dragon Tiger casino game screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🎰 Casino Game</span>
+            <h3>Dragon Tiger <small>— Full-Stack Game Dev</small></h3>
+            <p>Real-time card game, deterministic animations, server-synced certified flow. 60fps deal &amp; reveal on mid-tier Android.</p>
+            <div class="proj-tech">PixiJS · React · Node · MySQL · Nginx</div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/crypto-crash.png" alt="Crypto Crash real-time game screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">📈 Real-time Game</span>
+            <h3>Crypto Crash <small>— Full-Stack</small></h3>
+            <p>Multiplier curve game — real-time graph, cash-out race and live player rail via WebSocket/REST.</p>
+            <div class="proj-tech">React · PixiJS · Node.js · PostgreSQL</div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/leiprime.png" alt="Lei Prime corporate platform screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🏢 Corporate Platform</span>
+            <h3>Lei Prime — leiprime.com</h3>
+            <p>React + Tailwind on headless Symfony/PHP, MySQL, Nginx/PM2 + Cloudflare. SEO/OG, Lighthouse-tuned.</p>
+            <div class="proj-tech">React · Symfony · MySQL · Docker · <a class="proj-link" href="https://leiprime.com">leiprime.com</a></div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/golden-power-ball.jpg" alt="Golden Power Ball lottery game screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🎱 Lottery Game</span>
+            <h3>Golden Power Ball</h3>
+            <p>Number-draw lottery with ball physics and draw anticipation.</p>
+            <div class="proj-tech">PixiJS · React · TypeScript · GSAP</div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/css-spritesheet.webp" alt="CSS Spritesheet dev tool screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🛠️ Dev Tool · OSS</span>
+            <h3>CSS Spritesheet</h3>
+            <p>Browser tool to pack images into CSS spritesheets — drag, pack, export with live preview.</p>
+            <div class="proj-tech">HTML5 · JavaScript · CSS3 · <a class="proj-link" href="https://gaciloarielfrancis.github.io/CSS-Spritesheet/">CSS-Spritesheet</a></div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/punto-banco.jpg" alt="Punto Banco baccarat game screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🃏 Casino Game</span>
+            <h3>Punto Banco <small>— Baccarat</small></h3>
+            <p>Table sync, chip physics, settlement and DB-backed result reconciliation.</p>
+            <div class="proj-tech">PixiJS · React · PHP · MySQL</div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/gif-to-spritesheet.webp" alt="GIF to Spritesheet dev tool screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🛠️ Dev Tool · OSS</span>
+            <h3>GIF to Spritesheet</h3>
+            <p>GIFs → game-ready atlases + TexturePacker JSON — 100% in-browser, Vue 3 + TS, JSZip.</p>
+            <div class="proj-tech">Vue 3 · TS · Canvas · Vite</div>
+          </div>
+        </div>
+        <div class="proj">
+          <img src="./assets/artivora.webp" alt="Artivora AI image studio screenshot" loading="lazy" />
+          <div class="proj-body">
+            <span class="proj-cat">🎨 AI Tool · OSS</span>
+            <h3>Artivora — artivora.pages.dev</h3>
+            <p>Free no-login AI studio — Flux/SDXL/SD 3.5, 9 presets, batch gen via Pixazo.</p>
+            <div class="proj-tech">Vue · TS · Tailwind · Pixazo API</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>What I do on every project</h2>
+      <div class="comp-grid">
+        <div class="comp"><i>•</i><span>Figma / PS / AI → production code &amp; design systems</span></div>
+        <div class="comp"><i>•</i><span>REST APIs — auth, validation, reusable Node/PHP modules</span></div>
+        <div class="comp"><i>•</i><span>DB schemas — PostgreSQL, MySQL modeling</span></div>
+        <div class="comp"><i>•</i><span>Nginx, PM2, Docker, Linux, Cloudflare, Actions CI/CD</span></div>
+        <div class="comp"><i>•</i><span>SEO + OG, WebP/WebM, code-split, Lighthouse budgets</span></div>
+        <div class="comp"><i>•</i><span>Atlas packing, RAF batching, 60fps rendering</span></div>
+        <div class="comp"><i>•</i><span>Debugging &amp; production support across the stack</span></div>
+        <div class="comp"><i>•</i><span>VPS/cloud + Play / App Store — own release end-to-end</span></div>
+      </div>
+
+      <div class="banner">
+        <img src="./assets/hero-fullbody.png" alt="Ariel Francis Gacilo full body portrait" loading="lazy" />
+        <div>
+          <b>Philosophy — Ship small, measure, iterate.</b>
+          <p>Optimize for clarity, performance and team velocity. Prefer simple, well-tested abstractions. Lead frontend • Mentor • Owner.</p>
+        </div>
+      </div>
+
+      <div class="footer">Source: portfolio site (web/src/data.js) — generated October 2026. Images © respective projects. Additional: My Dominion Corp, PlayPoints, Three Faces Baccarat, Domino QQ, HiLo Card, Tambola Tropika, Keno Mobile.</div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
